@@ -10,13 +10,13 @@ class Character:
 
     
        for key, value in setup_new.items():
-           if key == 'health':
+           if key == 'Health':
                self._base_health = value
-           if key == 'energy':
+           if key == 'Energy':
                self._base_energy = value
-           if key == 'strength':
+           if key == 'Strength':
                self._base_strength = value
-           if key == 'defense':
+           if key == 'Defense':
                self._base_defense = value
                
        self._inventory = {}
@@ -31,6 +31,7 @@ class Character:
        self._fight_defense = 0 + self._base_defense
        self._fight_energy = 0 + self._base_energy
        self._fight_health = 0 + self._base_health
+       attack_power = random.randint(0, self._fight_strength)
             
 
     def equip(self, game_item):
@@ -70,8 +71,9 @@ class Character:
         del self._equipment[item_key]
     def attack(self, target):
         self.target = target
-        self.target._fight_health -= self._fight_strength
-
+        self.attack_power = random.randint(0, self._fight_strength)
+        self.target._fight_health -= self.attack_power
+        
     def defend(self):
         self._health += self._fight_defense
 
@@ -132,7 +134,7 @@ class Character:
             choice = str(random.randint(1,4))
             if choice == '1':
                 self.attack(self._target)
-                print("You did " + str(self._fight_strength) + " damage to %s" % (self._target._name))
+                print("You did " + str(self.attack_power) + " damage to %s" % (self._target._name))
                 
             elif choice == '2':
                 self._fight_health -= self._target._fight_strength
@@ -165,7 +167,8 @@ class Gorilla(Character):
 
         def rampage(self, target):
             self._health += self._defense
-            self.attack(target)
+            for i in range(0,2):
+                self.attack(target)
             
 
 class SilverBack(Gorilla):

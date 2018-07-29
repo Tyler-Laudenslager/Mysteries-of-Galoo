@@ -28,11 +28,11 @@ class Armory:
 
         armory = [[dusty_sword,dusty_staff,dusty_shield,dusty_dagger],
 
-              [clean_sword,clean_staff,clean_shield,clean_dagger],
+                  [clean_sword,clean_staff,clean_shield,clean_dagger],
 
-              [shiny_sword,shiny_staff,shiny_shield,shiny_dagger],
+                  [shiny_sword,shiny_staff,shiny_shield,shiny_dagger],
                   
-              [forsaken_sword,forsaken_staff,forsaken_shield,forsaken_dagger]]
+                  [forsaken_sword,forsaken_staff,forsaken_shield,forsaken_dagger]]
 
         
         if classtype == 'Magician':
@@ -42,16 +42,33 @@ class Armory:
         if classtype == 'Gorilla':
 
             weapon_picked = armory[0][random.randint(2,3)]
+        if classtype == 'Archer':
+            weapon_picked = armory[0][random.randint(2,3)]
+            
+        if classtype == 'Tunneler':
+            weapon_picked = armory[0][random.randint(2,3)]
+            
+        if classtype == 'Alchemist':
+            weapon_picked = armory[0][random.randint(2,3)]
+
+        if classtype == 'Knight':
+            weapon_picked = armory[0][random.randint(2,3)]
+
+        if classtype == 'Botanist':
+            weapon_picked = armory[0][random.randint(2,3)]
+
+        if classtype == 'Priest':
+            weapon_picked = armory[0][random.randint(2,3)]
 
         return weapon_picked.get_id()
     
     
-    def pick_armor():
+    def get_armor():
 
         None
 
 
-    def pick_amulet():
+    def get_amulet():
 
         None
 

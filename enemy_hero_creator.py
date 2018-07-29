@@ -1,11 +1,11 @@
 #Kandu! Entertainment est. 6/30/2018
-#This is the weapons/armor/amulet module for Galoo.
-import random
-import sys
-from generator import *
-class Weapon:
+#This is the enemy character creator class
+
+from weapon import *
+
+class Enemy:
     
-    def __init__(self, name, attributes):
+    def __init__(self, attributes):
         
         if attributes == 'dusty':
             self._attributes = generate_dusty_attributes()
@@ -17,16 +17,12 @@ class Weapon:
             self._attributes = generate_forsaken_attributes()
         if attributes == 'radiant':
             self._attributes = generate_radiant_attributes()
-            
-        self._identity = {name:self._attributes}
-        
-    def get_id(self):
-        return self._identity
 
-class Armor(Weapon):
-    def need_action():
+    def generate_stats(self):
+
+        return self._attributes
+
+class Hero(Enemy):
+
+    def need_action(self):
         None
-class Amulet(Weapon):
-    def need_action():
-        None
- 

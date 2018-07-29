@@ -9,6 +9,7 @@ from story import *
 import sys
 from weapon import *
 from armory import *
+from enemy_hero_creator import *
 
 
 def random_enemy():
@@ -52,58 +53,99 @@ def start_menu():
         choice = str(input("Choice: "))
         if choice == '1':
             name = input("Enter name for your Gorilla: ")
-            gorilla = Gorilla(start_new, name)
+            gorilla = Gorilla(radiant_char, name)
+            kathun = Dragon(dusty_enemy, 'Kathun the Enforcer')
+            kathun.add_to_inventory(loot['regular'])
+            new_weapon = Armory.get_weapon(gorilla._type)
+            gorilla.equip(new_weapon)
             enter_galoo()
             welcome_to_galoo()
+            gorilla.fight(kathun)
+            gorilla.playerinfo()
 
         if choice == '2':
             name = input("Enter name for your Tunneler: ")
-            tunneler = Tunneler(start_new, name)
+            tunneler = Tunneler(radiant_char, name)
+            kathun = Dragon(dusty_enemy, 'Kathun the Enforcer')
+            kathun.add_to_inventory(loot['regular'])
+            new_weapon = Armory.get_weapon(tunneler._type)
+            tunneler.equip(new_weapon)
             enter_galoo()
             welcome_to_galoo()
+            tunneler.fight(kathun)
+            tunneler.playerinfo()
 
         if choice == '3':
             name = input("Enter name for your Archer: ")
-            archer = Archer(start_new, name)
+            archer = Archer(radiant_char, name)
+            kathun = Dragon(dusty_enemy, 'Kathun the Enforcer')
+            kathun.add_to_inventory(loot['regular'])
+            new_weapon = Armory.get_weapon(archer._type)
+            archer.equip(new_weapon)
             enter_galoo()
             welcome_to_galoo()
+            archer.fight(kathun)
+            archer.playerinfo()
 
         if choice == '4':
             name = input("Enter name for your Alchemist: ")
-            alchemist = Alchemist(start_new, name)
+            alchemist = Alchemist(radiant_char, name)
+            kathun = Dragon(dusty_enemy, 'Kathun the Enforcer')
+            kathun.add_to_inventory(loot['regular'])
+            new_weapon = Armory.get_weapon(alchemist._type)
+            alchemist.equip(new_weapon)
             enter_galoo()
             welcome_to_galoo()
+            alchemist.fight(kathun)
+            alchemist.playerinfo()
 
         if choice == '5':
             name = input("Enter name for your Knight: ")
-            knight = Knight(start_new, name)
+            knight = Knight(radiant_char, name)
+            kathun = Dragon(dusty_enemy, 'Kathun the Enforcer')
+            kathun.add_to_inventory(loot['regular'])
+            new_weapon = Armory.get_weapon(knight._type)
+            knight.equip(new_weapon)
             enter_galoo()
             welcome_to_galoo()
+            knight.fight(kathun)
+            knight.playerinfo()
 
         if choice == '6':
             name = input("Enter name for your Botanist: ")
-            botanist = Botanist(start_new, name)
+            botanist = Botanist(radiant_char, name)
+            kathun = Dragon(dusty_enemy, 'Kathun the Enforcer')
+            kathun.add_to_inventory(loot['regular'])
+            new_weapon = Armory.get_weapon(botanist._type)
+            botanist.equip(new_weapon)
             enter_galoo()
             welcome_to_galoo()
-
+            botanist.fight(kathun)
+            botanist.playerinfo()
+            
         if choice == '7':
             name = input("Enter name for your Priest: ")
-            priest = Priest(start_new, name)
+            priest = Priest(radiant_char, name)
+            kathun = Dragon(dusty_enemy, 'Kathun the Enforcer')
+            kathun.add_to_inventory(loot['regular'])
+            new_weapon = Armory.get_weapon(priest._type)
+            priest.equip(new_weapon)
             enter_galoo()
             welcome_to_galoo()
+            priest.fight(kathun)
+            priest.playerinfo()
 
         if choice == '8':
             name = input("Enter name for your Magician: ")
-            magician = Magician(start_new, name)
-            kathun = Dragon(start_new, 'Kathun the Enforcer')
-            boo = Dragon(start_new, 'Boo the Terrible')
-            kathun.add_to_inventory(loot['treasure'])
-            boo.add_to_inventory(loot['regular'])
+            magician = Magician(radiant_char, name)
+            kathun = Dragon(dusty_enemy, 'Kathun the Enforcer')
+            kathun.add_to_inventory(loot['regular'])
+            new_weapon = Armory.get_weapon(magician._type)
+            magician.equip(new_weapon)
             enter_galoo()
             welcome_to_galoo()
             magician.fight(kathun)
-            kathun.playerinfo()
-
+            magician.playerinfo()
 
 
     elif choice == '2':
@@ -128,8 +170,13 @@ loot = {'treasure':treasure_chest,'regular':regular_loot}
 
 start_new = {'health':100, 'energy':50, 'strength':5, 'defense':5}
 
-start_new_enemy = {'health':500, 'energy':25, 'strength':20, 'defense':10}
+dusty_enemy = Enemy('dusty')
 
+radiant_char = Hero('radiant')
+
+dusty_enemy = dusty_enemy.generate_stats()
+
+radiant_char = radiant_char.generate_stats()
 
 child = {'health':50000, 'energy':100, 'strength':enemy_strength, 'defense':enemy_defense}
 
@@ -140,34 +187,31 @@ legendary_stats = {'health':5000, 'energy':2500, 'strength':7000, 'defense':3500
 
 
 
-basic_sword = Weapon('Dusty Sword', 'dusty')
-basic_staff = Weapon('Dusty Oak Staff', 'dusty')
-armory = {'Trainer Staff':basic_staff, 'Trainer Sword':basic_sword}
+##basic_sword = Weapon('Dusty Sword', 'dusty')
+##basic_staff = Weapon('Dusty Oak Staff', 'dusty')
+##armory = {'Trainer Staff':basic_staff, 'Trainer Sword':basic_sword}
+##
+##
+##magician = Magician(radiant_char, 'Merlin')
+##harambe = Gorilla(dusty_enemy, 'Harambe')
+##
+##harambe.add_to_inventory(loot['treasure'])
+##    
+##new_weapon = Armory.get_weapon(magician._type)
+##new_weapon3 = Armory.get_weapon(magician._type)
+##new_weapon2 = Armory.get_weapon(harambe._type)
+##
+##magician.equip(new_weapon)
+##magician.fight(harambe)
+##magician.playerinfo()
+##
+##magician.remove_item(new_weapon)
+##
+##magician.playerinfo()
+##
+##magician.playerinfo()
+##harambe.playerinfo()
+##input("Press Enter to Exit")
 
 
-three_year_old = Child(child, 'Child That Fell into Enclosure')
-
-
-
-magician = Magician(start_new, 'Merlin')
-harambe = Gorilla(start_new_enemy, 'Harambe')
-
-harambe.add_to_inventory(loot['treasure'])
-    
-new_weapon = Armory.get_weapon(magician._type)
-new_weapon3 = Armory.get_weapon(magician._type)
-new_weapon2 = Armory.get_weapon(harambe._type)
-
-magician.equip(new_weapon)
-
-magician.playerinfo()
-
-magician.remove_item(new_weapon)
-
-magician.playerinfo()
-
-
-input("Press Enter to Exit")
-
-
-
+start_menu()
