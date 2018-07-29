@@ -17,39 +17,44 @@ def random_enemy():
     None
 
 def enter_galoo():
-    print()
-    print ("Manifesting Character in Galoo", end='')
-    sleep(.25)
-    print (".", end='')
-    sleep(.25)
-    print (".", end='')
-    sleep(.25)
-    print (".", end='')
-    sleep(.25)
-    print (".", end='')
-    sleep(.25)
-    print (".", end='')
-    sleep(.25)
-    print (".", end='')
-    sleep(.25)
-    print ('Done', end='')
 
+    for i in range(6):
+        clear_buffer()
+        print ("Manifesting Character in Galoo", end='', flush=True)
+        for k in range(i):
+            print (".", end='', flush=True)            
+        blank_lines(10)
+        sleep(.25)
+    clear_buffer()
+    print ("Manifesting Character in Galoo.....Done!", end='', flush=True)
+    blank_lines(10)
+    sleep(.75)
 
 def start_menu():
+
+    clear_buffer()
+
     print("Mysteries of Galoo")
-    print("Press 1 for New Game")
-    print("Press 2 to Exit")
+    blank_lines(1)
+    print("\tPress 1 for New Game")
+    print("\tPress 2 to Exit")
+    blank_lines(1)
     choice = str(input("Choice: "))
+    clear_buffer()
+
     if choice == '1':
-        print("Choose your character")
-        print("Press 1 for Gorilla")
-        print("Press 2 for Tunneler")
-        print("Press 3 for Archer")
-        print("Press 4 for Alchemist")
-        print("Press 5 for Knight")
-        print("Press 6 for Botanist")
-        print("Press 7 for Priest")
-        print("Press 8 for Magician")
+        print("New Game!")
+        blank_lines(1)
+        print("Choose your character:")
+        print("Choose: 1) for Gorilla")
+        print("\t2) for Tunneler")
+        print("\t3) for Archer")
+        print("\t4) for Alchemist")
+        print("\t5) for Knight")
+        print("\t6) for Botanist")
+        print("\t7) for Priest")
+        print("\t8) for Magician")
+        blank_lines(1)
         choice = str(input("Choice: "))
         if choice == '1':
             name = input("Enter name for your Gorilla: ")
