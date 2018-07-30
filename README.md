@@ -19,6 +19,6 @@ Open game.py file and make two characters have one fight the other with the func
 
 ///// Look through the character class module to see what else a character can do.
 
-!!! This is a uncomplete program meant to be worked on by multiple contributors. !!!
+!!! This is an incomplete program meant to be worked on by multiple contributors. !!!
 
 Message me on reddit under u/koofus to be a contributor for fun.

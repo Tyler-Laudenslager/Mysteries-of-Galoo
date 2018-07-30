@@ -124,7 +124,7 @@ class Character:
         self._init_ene = self._fight_energy
         self._init_hea = self._fight_health
         print()
-        print("Your fighting %s: " % (self._target._name))
+        print("You're fighting %s: " % (self._target._name))
 
         while self._target._fight_health > 0 and self._fight_health > 0:
             print()
