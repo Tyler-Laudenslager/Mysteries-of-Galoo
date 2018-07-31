@@ -30,7 +30,10 @@ def create_dungeon():
 ##    catalog = [starting_character.fight(kathun()),starting_character.fight(goblin()),starting_character.fight(dark_fairy()),starting_character.fight(troll())]
 ##    
 ##    return catalog[random.randint(0,3)]
-
+def random_enemy():
+    enemy_catalog = [kathun(),goblin(),dark_fairy(),troll()]
+    choosen_enemy = enemy_catalog[random.randint(0,3)]
+    return choosen_enemy
 def kathun():
     kathun = Dragon(dusty_enemy, 'Kathun the Enforcer')
     kathun.add_to_inventory(loot['regular'])
@@ -63,7 +66,7 @@ class Map:
         
         self._start_y -= 1
         if self._grid[self._start_y][self._start_x] == room:
-            setup.starting_character.fight(kathun())
+            setup.starting_character.fight(random_enemy())
         if self._grid[self._start_y][self._start_x] == zero:
             choose_differant_room()
             return
@@ -76,7 +79,7 @@ class Map:
 
         self._start_y += 1
         if self._grid[self._start_y][self._start_x] == room:
-            setup.starting_character.fight(goblin())
+            setup.starting_character.fight(random_enemy())
         if self._grid[self._start_y][self._start_x] == zero:
             choose_differant_room()
             return
@@ -89,7 +92,7 @@ class Map:
         
         self._start_x += 1
         if self._grid[self._start_y][self._start_x] == room:
-            setup.starting_character.fight(dark_fairy())
+            setup.starting_character.fight(random_enemy())
         if self._grid[self._start_y][self._start_x] == zero:
             choose_differant_room()
             return
@@ -103,7 +106,7 @@ class Map:
         
         self._start_x -= 1
         if self._grid[self._start_y][self._start_x] == room:
-            setup.starting_character.fight(troll())
+            setup.starting_character.fight(random_enemy())
         if self._grid[self._start_y][self._start_x] == zero:
             choose_differant_room()
             return
