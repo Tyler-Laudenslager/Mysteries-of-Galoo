@@ -113,11 +113,6 @@ dungeon_1 = [[zero,zero,room,zero,zero],
              [zero,zero,room,zero,zero],
              [zero,zero,room,zero,zero]]
 
-##dungeon_1 = [['0        ','0        ','Room     ','0        ','0        '],
-##             ['0        ','0        ','Room     ','0        ','0        '],
-##             ['Room     ','Room     ','Player   ','Room     ','Room     '],
-##             ['0        ','0        ','Room     ','0        ','0        '],
-##             ['0        ','0        ','Room     ','0        ','0        ']]
 
 new_map_1 = Map(dungeon_1, 2, 2)
 new_map_2 = Map(dungeon_1, 2, 2)
