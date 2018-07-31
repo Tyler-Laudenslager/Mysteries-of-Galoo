@@ -52,7 +52,7 @@ class Map:
             
     def map_engine(self):
 
-        print("You found a map of the dungeon!")
+        print("You found a map of a dungeon!")
         self.display_map()
         while True:
             choice = str(input("Press 1 for UP 2 for Down 3 for Left 4 for Right: "))
