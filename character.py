@@ -215,4 +215,18 @@ class Dragon(Character):
 
         def need_action(self, target):
             None
+            
+class Goblin(Character):
+
+        def need_action(self, target):
+            None
+
+class Dark_Fairy(Character):
+
+        def need_action(self, target):
+            None
+class Troll(Character):
+
+        def need_action(self, target):
+            None
 

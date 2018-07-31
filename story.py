@@ -10,15 +10,15 @@ def welcome_to_galoo():
 Welcome to Mysteries of Galoo!
 _________________________________________________________________
 
-Far away near the dark mountain of Soochun lives a formitable foe,
+Far away near the dark mountain of Soochun lives a dark energy genie,
 Kathun the Enforcer. Wise young traveler you are all we have hoped
 for in these last few days. Trek wisely through Galoo and defeat Kathun
 before dark powers annihilate the land. """)
 
-    blank_lines(4)
+    blank_lines(1)
     ## I would suggest to replace this sleep(2) with a "press /whatever/ to continue" 
     ## to allow the player to read the story. -Austin
-    sleep(2)
+    input("Press Enter to Continue the Game...")
 
 # blank_lines inserts n blank lines when called.
 ## Typical usage: Visual alignment of elements
