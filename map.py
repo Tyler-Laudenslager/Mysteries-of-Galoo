@@ -1,6 +1,10 @@
 #Kandu! Entertainment est. 6/30/2018
 #This is the map module. This module will setup the map class
-#for all the maps in the game plus the worlds *flex*
+#for all the maps in the game plus the worlds about 1600 rooms to
+#explore *flex*
+
+from game import *
+
 
 
 class Map:
@@ -13,6 +17,8 @@ class Map:
     def up(self):
         
         self._start_y -= 1
+        if self._grid[self._start_y][self._start_x] == 'Room     ':
+            start_menu()
         self._grid[self._start_y][self._start_x] = 'Player   '
         self._start_y += 1
         self._grid[self._start_y][self._start_x] = 'Empty    '
@@ -21,6 +27,8 @@ class Map:
     def down(self):
 
         self._start_y += 1
+        if self._grid[self._start_y][self._start_x] == 'Room     ':
+            start_menu()
         self._grid[self._start_y][self._start_x] = 'Player   '
         self._start_y -= 1
         self._grid[self._start_y][self._start_x] = 'Empty    '
@@ -29,6 +37,8 @@ class Map:
     def right(self):
         
         self._start_x += 1
+        if self._grid[self._start_y][self._start_x] == 'Room     ':
+            start_menu()
         self._grid[self._start_y][self._start_x] = 'Player   '
         self._start_x -= 1
         self._grid[self._start_y][self._start_x] = 'Empty    '
@@ -38,6 +48,8 @@ class Map:
     def left(self):
         
         self._start_x -= 1
+        if self._grid[self._start_y][self._start_x] == 'Room     ':
+            start_menu()
         self._grid[self._start_y][self._start_x] = 'Player   '
         self._start_x += 1
         self._grid[self._start_y][self._start_x] = 'Empty    '
@@ -52,7 +64,7 @@ class Map:
             
     def map_engine(self):
 
-        print("You found a map of a dungeon!")
+        print("You found a map of the dungeon!")
         self.display_map()
         while True:
             choice = str(input("Press 1 for UP 2 for Down 3 for Left 4 for Right: "))
@@ -77,11 +89,11 @@ class Map:
         
         
                 
-dungeon_1 = [['0        ','0         ','Room      ','0        ','0        '],
-             ['0        ','0         ','Room      ','0        ','0        '],
-             ['Room     ','Room      ','Player    ','Room     ','Room     '],
-             ['0        ','0         ','Room      ','0        ','0        '],
-             ['0        ','0         ','Room      ','0        ','0        ']]
+dungeon_1 = [['0        ','0        ','Room      ','0        ','0        '],
+             ['0        ','0        ','Room      ','0        ','0        '],
+             ['Room     ','Room     ','Player    ','Room     ','Room     '],
+             ['0        ','0        ','Room      ','0        ','0        '],
+             ['0        ','0        ','Room      ','0        ','0        ']]
 
 new_map_1 = Map(dungeon_1, 2, 2)
 new_map_2 = Map(dungeon_1, 2, 2)
