@@ -5,10 +5,11 @@
 
 from game import *
 
-def choose_differant_room():
+def choose_different_room():
         print()
         print("Next time pick a space that has a Dungeon!!!")
         print()
+
 def create_dungeon():
 
     empty = 'Empty    '      
@@ -35,7 +36,7 @@ class Map:
         if self._grid[self._start_y][self._start_x] == room:
             start_menu()
         if self._grid[self._start_y][self._start_x] == zero:
-            choose_differant_room()
+            choose_different_room()
             return
         self._grid[self._start_y][self._start_x] = player
         self._start_y += 1
@@ -48,7 +49,7 @@ class Map:
         if self._grid[self._start_y][self._start_x] == room:
             start_menu() #replace with randomly generated senario from a senario list held in senario.py file
         if self._grid[self._start_y][self._start_x] == zero:
-            choose_differant_room()
+            choose_different_room()
             return
         self._grid[self._start_y][self._start_x] = player
         self._start_y -= 1
@@ -61,7 +62,7 @@ class Map:
         if self._grid[self._start_y][self._start_x] == room:
             start_menu()
         if self._grid[self._start_y][self._start_x] == zero:
-            choose_differant_room()
+            choose_different_room()
             return
         self._grid[self._start_y][self._start_x] = player
         self._start_x -= 1
@@ -75,7 +76,7 @@ class Map:
         if self._grid[self._start_y][self._start_x] == room:
             start_menu()
         if self._grid[self._start_y][self._start_x] == zero:
-            choose_differant_room()
+            choose_different_room()
             return
         self._grid[self._start_y][self._start_x] = player
         self._start_x += 1
