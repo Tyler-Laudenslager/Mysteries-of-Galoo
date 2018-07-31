@@ -79,7 +79,7 @@ class Map:
             
     def map_engine(self):
 
-        print("You found a map of the dungeon!")
+        print("You Found a Map!")
         self.display_map()
         while True:
             choice = str(input("UP:1 Down:2 Left:3 Right:4...: "))
@@ -103,7 +103,7 @@ class Map:
                 return
             
 empty = 'Empty    '      
-room = 'Room     '
+room = 'Dungeon  '
 zero = '0        '
 player = 'Player   '
 
