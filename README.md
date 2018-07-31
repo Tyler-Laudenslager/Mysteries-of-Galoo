@@ -15,4 +15,6 @@ character.py module is the character class file to create every character in the
 
 game.py module is the story
 
-map.py is the main game PLAY THIS FILE FIRST!!!!!!
+map.py module handles the map data structure / all the worlds / and the solar system.
+
+main.py is the MAIN python module RUN THIS FIRST!!!!
