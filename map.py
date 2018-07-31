@@ -1,7 +1,7 @@
 #Kandu! Entertainment est. 6/30/2018
 #This is the map module. This module will setup the map class
 #for all the maps in the game plus the worlds about 1600 rooms to
-#explore *flex*
+#explore
 
 from game import *
 
