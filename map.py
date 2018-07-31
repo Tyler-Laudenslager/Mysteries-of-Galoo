@@ -5,7 +5,10 @@
 
 from game import *
 
-
+def choose_differant_room():
+        print()
+        print("Next time pick a space that has a ROOM!!!")
+        print()
 
 class Map:
     def __init__(self, grid, x, y):
@@ -17,42 +20,54 @@ class Map:
     def up(self):
         
         self._start_y -= 1
-        if self._grid[self._start_y][self._start_x] == 'Room     ':
+        if self._grid[self._start_y][self._start_x] == room:
             start_menu()
-        self._grid[self._start_y][self._start_x] = 'Player   '
+        if self._grid[self._start_y][self._start_x] == zero:
+            choose_differant_room()
+            return
+        self._grid[self._start_y][self._start_x] = player
         self._start_y += 1
-        self._grid[self._start_y][self._start_x] = 'Empty    '
+        self._grid[self._start_y][self._start_x] = empty
         self._start_y -= 1
 
     def down(self):
 
         self._start_y += 1
-        if self._grid[self._start_y][self._start_x] == 'Room     ':
+        if self._grid[self._start_y][self._start_x] == room:
             start_menu()
-        self._grid[self._start_y][self._start_x] = 'Player   '
+        if self._grid[self._start_y][self._start_x] == zero:
+            choose_differant_room()
+            return
+        self._grid[self._start_y][self._start_x] = player
         self._start_y -= 1
-        self._grid[self._start_y][self._start_x] = 'Empty    '
+        self._grid[self._start_y][self._start_x] = empty
         self._start_y += 1
         
     def right(self):
         
         self._start_x += 1
-        if self._grid[self._start_y][self._start_x] == 'Room     ':
+        if self._grid[self._start_y][self._start_x] == room:
             start_menu()
-        self._grid[self._start_y][self._start_x] = 'Player   '
+        if self._grid[self._start_y][self._start_x] == zero:
+            choose_differant_room()
+            return
+        self._grid[self._start_y][self._start_x] = player
         self._start_x -= 1
-        self._grid[self._start_y][self._start_x] = 'Empty    '
+        self._grid[self._start_y][self._start_x] = empty
         self._start_x += 1
         
         
     def left(self):
         
         self._start_x -= 1
-        if self._grid[self._start_y][self._start_x] == 'Room     ':
+        if self._grid[self._start_y][self._start_x] == room:
             start_menu()
-        self._grid[self._start_y][self._start_x] = 'Player   '
+        if self._grid[self._start_y][self._start_x] == zero:
+            choose_differant_room()
+            return
+        self._grid[self._start_y][self._start_x] = player
         self._start_x += 1
-        self._grid[self._start_y][self._start_x] = 'Empty    '
+        self._grid[self._start_y][self._start_x] = empty
         self._start_x -= 1
         
     def display_map(self):
@@ -67,7 +82,7 @@ class Map:
         print("You found a map of the dungeon!")
         self.display_map()
         while True:
-            choice = str(input("Press 1 for UP 2 for Down 3 for Left 4 for Right: "))
+            choice = str(input("UP:1 Down:2 Left:3 Right:4...: "))
             if choice == '1':
                 self.up()
                 self.display_map()
@@ -86,14 +101,23 @@ class Map:
                 continue
             if choice == '5':
                 return
-        
-        
-                
-dungeon_1 = [['0        ','0        ','Room      ','0        ','0        '],
-             ['0        ','0        ','Room      ','0        ','0        '],
-             ['Room     ','Room     ','Player    ','Room     ','Room     '],
-             ['0        ','0        ','Room      ','0        ','0        '],
-             ['0        ','0        ','Room      ','0        ','0        ']]
+            
+empty = 'Empty    '      
+room = 'Room     '
+zero = '0        '
+player = 'Player   '
+
+dungeon_1 = [[zero,zero,room,zero,zero],
+             [zero,zero,room,zero,zero],
+             [room,room,player,room,room],
+             [zero,zero,room,zero,zero],
+             [zero,zero,room,zero,zero]]
+
+##dungeon_1 = [['0        ','0        ','Room     ','0        ','0        '],
+##             ['0        ','0        ','Room     ','0        ','0        '],
+##             ['Room     ','Room     ','Player   ','Room     ','Room     '],
+##             ['0        ','0        ','Room     ','0        ','0        '],
+##             ['0        ','0        ','Room     ','0        ','0        ']]
 
 new_map_1 = Map(dungeon_1, 2, 2)
 new_map_2 = Map(dungeon_1, 2, 2)
