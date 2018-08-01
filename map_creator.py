@@ -120,7 +120,9 @@ class Map:
     def map_engine(self):
 
         print("""
-Welcome to the center of the Solar System!
+Welcome to the Universe of Galoo
+
+You are at the center of the Solar System!
 
 As the action bar on the bottom states
 move your player according to the actions
@@ -130,9 +132,7 @@ UP: Press 1
 Down: Press 2
 Left: Press 3
 Right: Press 4
-
-*In development still but you can move to another map
-by pressing 5*
+Move to Another Map: Press 5
 
 8 dungeons per map / 25 maps per world / 8 worlds in the Solar System
 
@@ -140,7 +140,7 @@ Quick Maths thats 1600 dungeons. Oh man....I guess I know what I'll be doing thi
 
 Each 'Dungeon' you will start a fight with a random enemy *4 unique enemies so far*
 
-After you defeat the enemy with your strong weapon I have graciously provided,
+After you defeat the enemy with your strong weapon the developers have graciously provided,
 you will then take the enemy's loot and it will be added to your inventory.
 
 Plays like Dungeons and Dragons your 'Dice Roll' determines what will happen.
@@ -149,7 +149,7 @@ This is your Map. Don't Lose It! Have Fun!""")
         print()
         self.display_map()
         while True:
-            choice = str(input("UP:1 Down:2 Left:3 Right:4...: "))
+            choice = str(input("UP:1 Down:2 Left:3 Right:4 New Map:5...: "))
             if choice == '1':
                 self.up()
                 self.display_map()
