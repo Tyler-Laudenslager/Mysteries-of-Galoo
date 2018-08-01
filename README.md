@@ -1,6 +1,8 @@
 # Mysteries-of-Galoo
 Object Oriented Event Driven Text-Based RPG written in Python
 
+Ultra-Scalable - Developers make it as big as you want.
+
 Need Contributors // PM on Reddit u/Koofus
 
 Armory.py module handles all the weapons, armor, amulets for the characters/enemies.
