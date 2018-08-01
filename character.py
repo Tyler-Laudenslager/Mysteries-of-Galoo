@@ -31,6 +31,10 @@ class Character:
        self._fight_defense = 0 + self._base_defense
        self._fight_energy = 0 + self._base_energy
        self._fight_health = 0 + self._base_health
+       self._experience_points = 0
+       self._experience_to_go = 0
+       self._experience_cap = 2000
+       self._level = 1
        attack_power = random.randint(0, self._fight_strength)
             
 
@@ -75,19 +79,47 @@ class Character:
         self.target._fight_health -= self.attack_power
         
     def defend(self):
+        
         self._health += self._fight_defense
+        
+    def update_experience_to_go(self):
 
+        self._experience_to_go = self._experience_cap - self._experience_points
+
+    def increase_experience_ceiling(self):
+
+        self._experience_cap += self._level * self._experience_cap
+        
+    def check_level(self):
+        
+        if self._experience_points >= self._experience_cap:
+            self.level_up()
+            print("Congratulations You Reached....Level " + str(self._level))
+            return True
+        else:
+            return False
+    def add_experience_points(self):
+
+        self._experience_points += self._level * 500
+        
+    def level_up(self):
+                  
+        self._level += 1
+                  
     def playerinfo(self):
         print()
         print("<Player Information>")
         print("Name: " + self._name)
-        print("Type: " + self._type)
+        print("Class: " + self._type)
         print()
         print("Attributes----------")
         print("Health...... " + str(self._fight_health))
         print("Energy........ " + str(self._fight_energy))
         print("Strength.... " + str(self._fight_strength))
         print("Defense..... " + str(self._fight_defense))
+        print()
+        print("Level....... " + str(self._level))
+        print("Experience Needed to Level Up: " + str(self._experience_to_go))
         print()
         self.display_inventory(self._inventory)
         self.display_equipment(self._equipment)
@@ -128,7 +160,7 @@ class Character:
 
         while self._target._fight_health > 0 and self._fight_health > 0:
             print()
-            input("Press Enter to Roll Die to Determine Action")
+            #input("Press Enter to Roll Die to Determine Action")
             print()
             sleep(1)
             choice = str(random.randint(1,4))
@@ -162,6 +194,11 @@ class Character:
         print()
         print("You Defeated %s" % (self._target._name))
         print("You recieved %s's inventory" % (self._target._name))
+        self.add_experience_points()
+        if self.check_level() == True:
+            self.increase_experience_ceiling()
+        self.update_experience_to_go()
+        self.playerinfo()
 
 class Gorilla(Character):
 
