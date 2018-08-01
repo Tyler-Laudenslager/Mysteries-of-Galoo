@@ -1,5 +1,5 @@
 # Mysteries-of-Galoo
-Text-Based RPG written in Python (personal project)
+Text-Based RPG written in Python
 
 Need Contributors // PM on Reddit u/Koofus
 
