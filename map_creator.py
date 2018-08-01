@@ -11,9 +11,7 @@ room = 'Dungeon  '
 zero = '0        '
 player = 'Player   '
 
-
 def create_dungeon():
-
     empty = 'Empty    '      
     room = 'Dungeon  '
     zero = '0        '
@@ -29,18 +27,22 @@ def random_enemy():
     enemy_catalog = [kathun(),goblin(),dark_fairy(),troll()]
     choosen_enemy = enemy_catalog[random.randint(0,3)]
     return choosen_enemy
+
 def kathun():
     kathun = Dragon(dusty_enemy, 'Kathun the Enforcer')
     kathun.add_to_inventory(loot['regular'])
     return kathun
+
 def goblin():
     goblin = Goblin(dusty_enemy, 'Kothen the Goblin')
     goblin.add_to_inventory(loot['regular'])
     return goblin
+
 def dark_fairy():
     dark_fairy = Dark_Fairy(dusty_enemy, 'Oolefia the Dark Fairy')
     dark_fairy.add_to_inventory(loot['regular'])
     return dark_fairy
+
 def troll():
     troll = Troll(dusty_enemy, 'Chigon the Troll')
     troll.add_to_inventory(loot['regular'])
@@ -58,12 +60,11 @@ class Map:
         print()
         
     def up(self):
-        
         self._start_y -= 1
         if self._grid[self._start_y][self._start_x] == room:
             setup.starting_character.fight(random_enemy())
         if self._grid[self._start_y][self._start_x] == zero:
-            self.choose_different_room()
+            self._start_y += 1
             return
         self._grid[self._start_y][self._start_x] = player
         self._start_y += 1
@@ -71,12 +72,11 @@ class Map:
         self._start_y -= 1
 
     def down(self):
-
         self._start_y += 1
         if self._grid[self._start_y][self._start_x] == room:
             setup.starting_character.fight(random_enemy())
         if self._grid[self._start_y][self._start_x] == zero:
-            self.choose_different_room()
+            self._start_y -= 1
             return
         self._grid[self._start_y][self._start_x] = player
         self._start_y -= 1
@@ -84,12 +84,11 @@ class Map:
         self._start_y += 1
         
     def right(self):
-        
         self._start_x += 1
         if self._grid[self._start_y][self._start_x] == room:
             setup.starting_character.fight(random_enemy())
         if self._grid[self._start_y][self._start_x] == zero:
-            self.choose_different_room()
+            self._start_x -= 1
             return
         self._grid[self._start_y][self._start_x] = player
         self._start_x -= 1
@@ -98,12 +97,11 @@ class Map:
         
         
     def left(self):
-        
         self._start_x -= 1
         if self._grid[self._start_y][self._start_x] == room:
             setup.starting_character.fight(random_enemy())
         if self._grid[self._start_y][self._start_x] == zero:
-            self.choose_different_room()
+            self._start_x += 1
             return
         self._grid[self._start_y][self._start_x] = player
         self._start_x += 1
@@ -111,14 +109,12 @@ class Map:
         self._start_x -= 1
         
     def display_map(self):
-
         for i in range(len(self._grid)):
             for j in range(len(self._grid[i])):
                 print(self._grid[i][j], end = '|')
             print()
             
     def map_engine(self):
-
         print("""
 Welcome to the Universe of Galoo
 
