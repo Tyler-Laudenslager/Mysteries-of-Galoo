@@ -3,7 +3,7 @@ Text-Based RPG written in Python
 
 Need Contributors // PM on Reddit u/Koofus
 
-Armory.py module handles all the weapons armor amulets for the characters/enemies.
+Armory.py module handles all the weapons, armor, amulets for the characters/enemies.
 
 generator.py module handles all the stat generation to work with the weapon.py module
 
