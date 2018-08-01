@@ -25,11 +25,6 @@ def create_dungeon():
                  [zero,zero,room,zero,zero]]
     return dungeon_1
 
-##def random_encounter():
-##
-##    catalog = [starting_character.fight(kathun()),starting_character.fight(goblin()),starting_character.fight(dark_fairy()),starting_character.fight(troll())]
-##    
-##    return catalog[random.randint(0,3)]
 def random_enemy():
     enemy_catalog = [kathun(),goblin(),dark_fairy(),troll()]
     choosen_enemy = enemy_catalog[random.randint(0,3)]
@@ -57,7 +52,7 @@ class Map:
         self._start_x = x
         self._start_y = y
         
-    def choose_differant_room(self):
+    def choose_different_room(self):
         print()
         print("Next time pick a space that has a Dungeon!!!")
         print()
@@ -68,7 +63,7 @@ class Map:
         if self._grid[self._start_y][self._start_x] == room:
             setup.starting_character.fight(random_enemy())
         if self._grid[self._start_y][self._start_x] == zero:
-            choose_differant_room()
+            self.choose_different_room()
             return
         self._grid[self._start_y][self._start_x] = player
         self._start_y += 1
@@ -81,7 +76,7 @@ class Map:
         if self._grid[self._start_y][self._start_x] == room:
             setup.starting_character.fight(random_enemy())
         if self._grid[self._start_y][self._start_x] == zero:
-            choose_differant_room()
+            self.choose_different_room()
             return
         self._grid[self._start_y][self._start_x] = player
         self._start_y -= 1
@@ -94,7 +89,7 @@ class Map:
         if self._grid[self._start_y][self._start_x] == room:
             setup.starting_character.fight(random_enemy())
         if self._grid[self._start_y][self._start_x] == zero:
-            choose_differant_room()
+            self.choose_different_room()
             return
         self._grid[self._start_y][self._start_x] = player
         self._start_x -= 1
@@ -108,7 +103,7 @@ class Map:
         if self._grid[self._start_y][self._start_x] == room:
             setup.starting_character.fight(random_enemy())
         if self._grid[self._start_y][self._start_x] == zero:
-            choose_differant_room()
+            self.choose_different_room()
             return
         self._grid[self._start_y][self._start_x] = player
         self._start_x += 1
