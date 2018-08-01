@@ -1,7 +1,7 @@
 # Mysteries-of-Galoo
 Text-Based RPG written in Python (personal project)
 
-
+Need Contributors // PM on Reddit u/Koofus
 
 Armory.py module handles all the weapons armor amulets for the characters/enemies.
 
