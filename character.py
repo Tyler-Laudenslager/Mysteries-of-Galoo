@@ -160,7 +160,7 @@ class Character:
 
         while self._target._fight_health > 0 and self._fight_health > 0:
             print()
-            #input("Press Enter to Roll Die to Determine Action")
+            input("Press Enter to Roll Die to Determine Action")
             print()
             sleep(1)
             choice = str(random.randint(1,4))
