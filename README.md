@@ -1,5 +1,5 @@
 # Mysteries-of-Galoo
-Object Oriented Event Driven Text-Based RPG written in Python
+Object Oriented Choice Driven Text-Based RPG written in Python
 
 Ultra-Scalable - Developers make it as big as you want.
 
