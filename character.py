@@ -88,7 +88,7 @@ class Character:
 
     def increase_experience_ceiling(self):
 
-        self._experience_cap += self._level * self._experience_cap
+        self._experience_cap += self._level * 2000
         
     def check_level(self):
         
@@ -100,7 +100,7 @@ class Character:
             return False
     def add_experience_points(self):
 
-        self._experience_points += self._level * 500
+        self._experience_points += 500
         
     def level_up(self):
                   
@@ -137,7 +137,6 @@ class Character:
             print(str(value)+ " " + key)
             if key != 'Gold':
                 item_total += value
-        print("Total number of items: " + str(item_total))
 
     def add_to_inventory(self, added_items):
         for key, value in added_items.items():
@@ -160,7 +159,7 @@ class Character:
 
         while self._target._fight_health > 0 and self._fight_health > 0:
             print()
-            input("Press Enter to Roll Die to Determine Action")
+            #input("Press Enter to Roll Die to Determine Action")
             print()
             sleep(1)
             choice = str(random.randint(1,4))
