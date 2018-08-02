@@ -13,7 +13,35 @@ from generator import *
 from map_creator import *
 
     
+def intro():
 
+    print("""
+Welcome to the Universe of Galoo
+
+You are at the center of the Solar System!
+
+As the action bar on the bottom states
+move your player according to the actions
+provided below
+
+UP: Press 1
+Down: Press 2
+Left: Press 3
+Right: Press 4
+Move to Another Map: Press 5
+
+8 dungeons per map / 25 maps per world / 8 worlds in the Solar System
+
+Quick Maths thats 1600 dungeons. Oh man....I guess I know what I'll be doing this weekend!
+
+Each 'Dungeon' you will start a fight with a random enemy *4 unique enemies so far*
+
+After you defeat the enemy with your strong weapon the developer has graciously provided,
+you will then take the enemy's loot and it will be added to your inventory.
+
+Plays like Dungeons and Dragons your 'Dice Roll' determines what will happen.
+
+This is your Map. Don't Lose It! Have Fun!""")
     
 def enter_galoo():
 
@@ -43,7 +71,11 @@ treasure_chest = {'Gold':40, 'Health Potion':1, 'Ruby_Necklace':1, 'Autographed 
 
 regular_loot = {'Gold':3, 'Dirty Clothes':1}
 
-loot = {'treasure':treasure_chest,'regular':regular_loot}
+dust_loot = {'Dust':2}
+
+diamond_chest = {'Diamond':1, 'Gold':100}
+
+loot = {'treasure':treasure_chest,'regular':regular_loot,'dust':dust_loot,'diamond_chest':diamond_chest}
 
 start_new = {'health':100, 'energy':50, 'strength':5, 'defense':5}
 
