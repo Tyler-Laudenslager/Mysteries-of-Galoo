@@ -31,11 +31,11 @@ def random_enemy():
     return choosen_enemy
 def kathun():
     kathun = Dragon(dusty_enemy, 'Kathun the Enforcer')
-    kathun.add_to_inventory(loot['regular'])
+    kathun.add_to_inventory(loot['diamond_chest'])
     return kathun
 def goblin():
     goblin = Goblin(dusty_enemy, 'Kothen the Goblin')
-    goblin.add_to_inventory(loot['regular'])
+    goblin.add_to_inventory(loot['treasure'])
     return goblin
 def dark_fairy():
     dark_fairy = Dark_Fairy(dusty_enemy, 'Oolefia the Dark Fairy')
@@ -43,7 +43,7 @@ def dark_fairy():
     return dark_fairy
 def troll():
     troll = Troll(dusty_enemy, 'Chigon the Troll')
-    troll.add_to_inventory(loot['regular'])
+    troll.add_to_inventory(loot['dust'])
     return troll
             
 class Map:
@@ -51,7 +51,7 @@ class Map:
         self._grid = grid
         self._start_x = x
         self._start_y = y
-        
+        self.played_intro = False
     def choose_different_room(self):
         print()
         print("Next time pick a space that has a Dungeon!!!")
@@ -116,9 +116,7 @@ class Map:
             for j in range(len(self._grid[i])):
                 print(self._grid[i][j], end = '|')
             print()
-            
-    def map_engine(self):
-
+    def display_intro(self):
         print("""
 Welcome to the Universe of Galoo
 
@@ -140,34 +138,40 @@ Quick Maths thats 1600 dungeons. Oh man....I guess I know what I'll be doing thi
 
 Each 'Dungeon' you will start a fight with a random enemy *4 unique enemies so far*
 
-After you defeat the enemy with your strong weapon the developers have graciously provided,
+After you defeat the enemy with your strong weapon the developer has graciously provided,
 you will then take the enemy's loot and it will be added to your inventory.
 
 Plays like Dungeons and Dragons your 'Dice Roll' determines what will happen.
 
 This is your Map. Don't Lose It! Have Fun!""")
-        print()
-        self.display_map()
-        while True:
-            choice = str(input("UP:1 Down:2 Left:3 Right:4 New Map:5...: "))
-            if choice == '1':
-                self.up()
-                self.display_map()
-                continue
-            if choice == '2':
-                self.down()
-                self.display_map()
-                continue
-            if choice == '3':
-                self.left()
-                self.display_map()
-                continue
-            if choice == '4':
-                self.right()
-                self.display_map()
-                continue
-            if choice == '5':
-                return
+    def map_engine(self):
+
+        if self.played_intro == False:
+            self.display_intro()
+            self.played_intro = True
+        else:
+            print()
+            self.display_map()
+            while True:
+                choice = str(input("UP:1 Down:2 Left:3 Right:4 New Map:5...: "))
+                if choice == '1':
+                    self.up()
+                    self.display_map()
+                    continue
+                if choice == '2':
+                    self.down()
+                    self.display_map()
+                    continue
+                if choice == '3':
+                    self.left()
+                    self.display_map()
+                    continue
+                if choice == '4':
+                    self.right()
+                    self.display_map()
+                    continue
+                if choice == '5':
+                    return
      
 
 new_map_1 = Map(create_dungeon(), 2, 2)
