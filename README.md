@@ -13,6 +13,6 @@ character.py module is the character class file to create every character in the
 
 game.py module needs revision 
 
-map_creator.py module handles the map data structure / all the worlds / and the solar system.
+map_creator.py module handles the dungeons/worlds/solar-systems underlying structure.
 
 main.py is the MAIN python module RUN THIS FIRST!!!!
