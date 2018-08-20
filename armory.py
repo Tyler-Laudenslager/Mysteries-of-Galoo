@@ -2,6 +2,7 @@
 #This is the armory module for Galoo.
 
 from weapon import *
+
 class Armory:
     
     def get_weapon(classtype):
@@ -36,12 +37,11 @@ class Armory:
 
         
         if classtype == 'Magician':
-            
             weapon_picked = armory[random.randint(0,3)][random.randint(0,1)]
 
         if classtype == 'Gorilla':
-
             weapon_picked = armory[0][random.randint(2,3)]
+
         if classtype == 'Archer':
             weapon_picked = armory[0][random.randint(2,3)]
             
@@ -64,11 +64,7 @@ class Armory:
     
     
     def get_armor():
-
         None
-
 
     def get_amulet():
-
         None
-
