@@ -8,7 +8,8 @@ def generate_dusty_attributes():
     Energy = random.randint(10,15)
     Strength = random.randint(12,20)
     Defense = random.randint(7,10)
-    attributes = {'Health':Health, 'Energy':Energy, 'Strength':Strength, 'Defense':Defense, 'Type': 'Dusty'}
+    Gold = random.randint(1,5)
+    attributes = {'Health':Health, 'Energy':Energy, 'Strength':Strength, 'Defense':Defense, 'Type': 'Dusty','Worth': Gold}
     return attributes
 
 def generate_clean_attributes():
@@ -16,30 +17,34 @@ def generate_clean_attributes():
     Energy = random.randint(35,37)
     Strength = random.randint(40,57)
     Defense = random.randint(5,10)
-    attributes = {'Health':Health, 'Energy':Energy, 'Strength':Strength, 'Defense':Defense, 'Type': 'Clean'}
+    Gold = random.randint(5,10)
+    attributes = {'Health':Health, 'Energy':Energy, 'Strength':Strength, 'Defense':Defense, 'Type': 'Clean', 'Worth': Gold}
     return attributes
 
 def generate_shiny_attributes():
-    Health = random.randint(450,5000)
+    Health = random.randint(450,500)
     Energy = random.randint(250,300)
-    Strength = random.randint(500,1500)
-    Defense = random.randint(200,800)
-    attributes = {'Health':Health, 'Energy':Energy, 'Strength':Strength, 'Defense':Defense, 'Type': 'Shiny'}
+    Strength = random.randint(50,150)
+    Defense = random.randint(20,80)
+    Gold = random.randint(10,15)
+    attributes = {'Health':Health, 'Energy':Energy, 'Strength':Strength, 'Defense':Defense, 'Type': 'Shiny', 'Worth': Gold}
     return attributes
 
 def generate_forsaken_attributes():
-    Health = random.randint(500000,750000)
+    Health = random.randint(5000,7500)
     Energy = random.randint(200000,300000)
-    Strength = random.randint(2000000,350000000)
-    Defense = random.randint(700000,1000000)
-    attributes = {'Health':Health, 'Energy':Energy, 'Strength':Strength, 'Defense':Defense, 'Type': 'Forsaken'}
+    Strength = random.randint(200,350)
+    Defense = random.randint(25,100)
+    Gold = random.randint(12,50)
+    attributes = {'Health':Health, 'Energy':Energy, 'Strength':Strength, 'Defense':Defense, 'Type': 'Forsaken', 'Worth': Gold}
     return attributes
 
 def generate_radiant_attributes():
     Health = random.randint(23432,26533)
-    Energy = random.randint(30000,40000)
-    Strength = random.randint(120000,250000)
+    Energy = random.randint(300,4000)
+    Strength = random.randint(1200,2500)
     Defense = random.randint(60000,65000)
-    attributes = {'Health':Health, 'Energy':Energy, 'Strength':Strength, 'Defense':Defense, 'Type': 'Radiant'}
+    Gold = random.randint(10,120)
+    attributes = {'Health':Health, 'Energy':Energy, 'Strength':Strength, 'Defense':Defense, 'Type': 'Radiant', 'Worth': Gold}
     return attributes
 

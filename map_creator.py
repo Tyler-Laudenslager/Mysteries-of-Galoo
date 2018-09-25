@@ -3,7 +3,18 @@
 #for all the maps in the game plus the worlds about 1600 rooms to
 #explore *flex*
 
+from character import *
+import random
+from time import sleep
+from story import *
+import sys
+from weapon import *
+from armory import *
+from enemy_hero_creator import *
+from map_creator import *
 from game import *
+from generator import *
+from store import *
 import setup
 
 empty = 'Empty    '      
@@ -24,25 +35,24 @@ def create_dungeon():
                  [zero,zero,room,zero,zero],
                  [zero,zero,room,zero,zero]]
     return dungeon_1
-
 def random_enemy():
     enemy_catalog = [kathun(),goblin(),dark_fairy(),troll()]
     choosen_enemy = enemy_catalog[random.randint(0,3)]
     return choosen_enemy
 def kathun():
-    kathun = Dragon(dusty_enemy, 'Kathun the Enforcer')
+    kathun = Dragon(clean_enemy, 'Kathun the Enforcer')
     kathun.add_to_inventory(loot['diamond_chest'])
     return kathun
 def goblin():
-    goblin = Goblin(dusty_enemy, 'Kothen the Goblin')
+    goblin = Goblin(clean_enemy, 'Kothen the Goblin')
     goblin.add_to_inventory(loot['treasure'])
     return goblin
 def dark_fairy():
-    dark_fairy = Dark_Fairy(dusty_enemy, 'Oolefia the Dark Fairy')
+    dark_fairy = Dark_Fairy(clean_enemy, 'Oolefia the Dark Fairy')
     dark_fairy.add_to_inventory(loot['regular'])
     return dark_fairy
 def troll():
-    troll = Troll(dusty_enemy, 'Chigon the Troll')
+    troll = Troll(clean_enemy, 'Chigon the Troll')
     troll.add_to_inventory(loot['dust'])
     return troll
             
@@ -51,7 +61,7 @@ class Map:
         self._grid = grid
         self._start_x = x
         self._start_y = y
-        self.played_intro = False
+        self._played_intro = False
     def choose_different_room(self):
         print()
         print("Next time pick a space that has a Dungeon!!!")
@@ -116,12 +126,12 @@ class Map:
             for j in range(len(self._grid[i])):
                 print(self._grid[i][j], end = '|')
             print()
-
+            
     def map_engine(self):
         print()
         self.display_map()
         while True:
-            choice = str(input("UP:1 Down:2 Left:3 Right:4 New Map:5...: "))
+            choice = str(input("UP:1 Down:2 Left:3 Right:4 New Map:5 Store:6: "))
             if choice == '1':
                 self.up()
                 self.display_map()
@@ -140,8 +150,10 @@ class Map:
                 continue
             if choice == '5':
                 return
-     
-
+            if choice == '6':
+                store = Store(setup.starting_character._type)
+                store.display_store()
+              
 new_map_1 = Map(create_dungeon(), 2, 2)
 new_map_2 = Map(create_dungeon(), 2, 2)
 new_map_3 = Map(create_dungeon(), 2, 2)

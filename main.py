@@ -1,6 +1,6 @@
 #Kandu! Entertainment 6/30/2018
 #This is the main module to run world of Galoo
-
+#! python3
 from character import *
 import random
 from time import sleep
@@ -13,7 +13,19 @@ from map_creator import *
 from game import *
 from generator import *
 import setup
-
+def setup_character():
+    setup.new_equipment_1 = Armory.get_weapon(setup.starting_character._type)
+    setup.new_equipment_2 = Armory.get_armor(setup.starting_character._type)
+    setup.new_equipment_3 = Armory.get_armor(setup.starting_character._type)
+    setup.new_equipment_4 = Armory.get_armor(setup.starting_character._type)
+    setup.new_equipment_5 = Armory.get_armor(setup.starting_character._type)
+    setup.new_equipment_6 = Armory.get_armor(setup.starting_character._type)
+    setup.starting_character.equip(setup.new_equipment_1)
+    setup.starting_character.equip(setup.new_equipment_2)
+    setup.starting_character.equip(setup.new_equipment_3)
+    setup.starting_character.equip(setup.new_equipment_4)
+    setup.starting_character.equip(setup.new_equipment_5)
+    setup.starting_character.equip(setup.new_equipment_6)
 def start_menu():
     clear_buffer()
     print("Mysteries of Galoo")
@@ -40,37 +52,39 @@ def start_menu():
         if choice == '1':
             name = input("Enter name for your Gorilla: ")
             setup.starting_character = Gorilla(radiant_char, name)
+            setup.armor_locator = 0
 
         if choice == '2':
             name = input("Enter name for your Tunneler: ")
             setup.starting_character = Tunneler(radiant_char, name)
-
+            setup.armor_locator = 0
         if choice == '3':
             name = input("Enter name for your Archer: ")
             setup.starting_character = Archer(radiant_char, name)
-
+            setup.armor_locator = 0
         if choice == '4':
             name = input("Enter name for your Alchemist: ")
             setup.starting_character = Alchemist(radiant_char, name)
-
+            setup.armor_locator = 0
         if choice == '5':
             name = input("Enter name for your Knight: ")
             setup.starting_character = Knight(radiant_char, name)
-
+            setup.armor_locator = 0
         if choice == '6':
             name = input("Enter name for your Botanist: ")
             setup.starting_character = Botanist(radiant_char, name)
-            
+            setup.armor_locator = 0
         if choice == '7':
             name = input("Enter name for your Priest: ")
             setup.starting_character = Priest(radiant_char, name)
-
+            setup.armor_locator = 0
         if choice == '8':
             name = input("Enter name for your Magician: ")
             setup.starting_character = Magician(radiant_char, name)
-        new_weapon = Armory.get_weapon(setup.starting_character._type)
-        setup.starting_character.equip(new_weapon)
+            setup.armor_locator = 0
+        setup_character()
         enter_galoo()
+        intro()
         play_solar_system()
     elif choice == '2':
         sys.exit()

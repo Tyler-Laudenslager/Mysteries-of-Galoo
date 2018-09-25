@@ -22,6 +22,7 @@ class Character:
        self._inventory = {}
        self._equipment = {}
        self._name = name
+       self._gold = 0
        self._type = self.__class__.__name__
        self._strength_weapon = 0
        self._defense_weapon = 0
@@ -40,7 +41,7 @@ class Character:
 
     def equip(self, game_item):
         self._game_item = game_item
-        for key, value in game_item.items():
+        for key, value in self._game_item.items():
             self._equipment.setdefault(key, value)
             for key, value in value.items():
                 if key == 'Strength':
@@ -58,7 +59,7 @@ class Character:
                     
     def remove_item(self, game_item):
         self._game_item = game_item
-        for item_key, value in game_item.items():
+        for item_key, value in self._game_item.items():
             for key, value in value.items():
                 if key == 'Strength':
                     self._strength_weapon -= value
@@ -137,12 +138,12 @@ class Character:
             print(str(value)+ " " + key)
             if key != 'Gold':
                 item_total += value
-
     def add_to_inventory(self, added_items):
         for key, value in added_items.items():
             self._inventory.setdefault(key, 0)
             self._inventory[key] += value
-
+            if key == 'Gold':
+                self._gold += value
     def fight(self, target):
         self._target = target
         self._defense_counter = 0
@@ -207,10 +208,12 @@ class Gorilla(Character):
                 self.attack(target)
             
 
-class SilverBack(Gorilla):
+class Harambe(Gorilla):
 
-        def need_action(self, target):
-            None
+        def syringe_of_detergent(self, target):
+            for i in range(0,2):
+                self.attack(target)
+            
 
 class Tunneler(Character):
 
