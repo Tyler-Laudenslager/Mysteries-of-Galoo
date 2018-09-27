@@ -20,8 +20,9 @@ class Character:
                self._base_defense = value
                
        self._inventory = {}
-       self._equipment = {}
+       self._equipment = []
        self._name = name
+       self._gold = 0
        self._type = self.__class__.__name__
        self._strength_weapon = 0
        self._defense_weapon = 0
@@ -38,10 +39,10 @@ class Character:
        attack_power = random.randint(0, self._fight_strength)
             
 
-    def equip(self, game_item):
+    def equip(self, game_item, position):
         self._game_item = game_item
-        for key, value in game_item.items():
-            self._equipment.setdefault(key, value)
+        for key, value in self._game_item.items():
+            self._equipment.insert(position, game_item)
             for key, value in value.items():
                 if key == 'Strength':
                     self._strength_weapon += value
@@ -56,9 +57,10 @@ class Character:
                     self._defense_weapon += value
                     self._fight_defense += value
                     
-    def remove_item(self, game_item):
+    def remove_item(self, game_item, position):
         self._game_item = game_item
-        for item_key, value in game_item.items():
+        for item_key, value in self._game_item.items():
+            self._equipment.pop(position)
             for key, value in value.items():
                 if key == 'Strength':
                     self._strength_weapon -= value
@@ -72,7 +74,7 @@ class Character:
                 if key == 'Defense':
                     self._defense_weapon -= value
                     self._fight_defense -= value
-        del self._equipment[item_key]
+        
     def attack(self, target):
         self.target = target
         self.attack_power = random.randint(0, self._fight_strength)
@@ -122,13 +124,18 @@ class Character:
         print("Experience Needed to Level Up: " + str(self._experience_to_go))
         print()
         self.display_inventory(self._inventory)
-        self.display_equipment(self._equipment)
+        self.display_equipment()
 
-    def display_equipment(self, inventory):
+    def display_equipment(self):
         print()
         print("Equipment:")
-        for key in inventory.items():
-            print(key)
+        equipment = list(self._equipment)
+        print(equipment[0])
+        print(equipment[1])
+        print(equipment[2])
+        print(equipment[3])
+        print(equipment[4])
+        print(equipment[5])
         print()
     def display_inventory(self, inventory):
         print("Inventory:")
@@ -137,12 +144,12 @@ class Character:
             print(str(value)+ " " + key)
             if key != 'Gold':
                 item_total += value
-
     def add_to_inventory(self, added_items):
         for key, value in added_items.items():
             self._inventory.setdefault(key, 0)
             self._inventory[key] += value
-
+            if key == 'Gold':
+                self._gold += value
     def fight(self, target):
         self._target = target
         self._defense_counter = 0
@@ -207,10 +214,12 @@ class Gorilla(Character):
                 self.attack(target)
             
 
-class SilverBack(Gorilla):
+class Harambe(Gorilla):
 
-        def need_action(self, target):
-            None
+        def syringe_of_detergent(self, target):
+            for i in range(0,2):
+                self.attack(target)
+            
 
 class Tunneler(Character):
 

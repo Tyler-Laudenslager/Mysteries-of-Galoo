@@ -44,18 +44,14 @@ Plays like Dungeons and Dragons your 'Dice Roll' determines what will happen.
 This is your Map. Don't Lose It! Have Fun!""")
     
 def enter_galoo():
-
-    for i in range(6):
-        clear_buffer()
-        print ("Manifesting Character in Galoo", end='', flush=True)
-        for k in range(i):
-            print (".", end='', flush=True)            
-        blank_lines(10)
-        sleep(.25)
     clear_buffer()
-    print ("Manifesting Character in Galoo.....Done!", end='', flush=True)
-    blank_lines(10)
-    sleep(.75)
+    print ("Manifesting Character in Galoo", end = " ")
+    for i in range(6):
+        print (".", end = " ")            
+        sleep(.25)
+    print ("Done!")
+    sleep(.25)
+    
     
             
 
@@ -80,6 +76,18 @@ loot = {'treasure':treasure_chest,'regular':regular_loot,'dust':dust_loot,'diamo
 start_new = {'health':100, 'energy':50, 'strength':5, 'defense':5}
 
 dusty_enemy = Enemy('dusty')
+
+clean_enemy = Enemy('clean')
+
+shiny_enemy = Enemy('shiny')
+
+forsaken_enemy = Enemy('forsaken')
+
+radiant_enemy = Enemy('radiant')
+
+dusty_hero = Hero('dusty')
+
+clean_enemy = clean_enemy.generate_stats()
 
 radiant_char = Hero('radiant')
 
