@@ -8,15 +8,15 @@ class Enemy:
     def __init__(self, attributes):
         
         if attributes == 'dusty':
-            self._attributes = generate_dusty_attributes()
+            self._attributes = enemy_dusty_attributes()
         if attributes == 'clean':
-            self._attributes = generate_clean_attributes()
+            self._attributes = enemy_clean_attributes()
         if attributes == 'shiny':
-            self._attributes = generate_shiny_attributes()
+            self._attributes = enemy_shiny_attributes()
         if attributes == 'forsaken':
-            self._attributes = generate_forsaken_attributes()
+            self._attributes = enemy_forsaken_attributes()
         if attributes == 'radiant':
-            self._attributes = generate_radiant_attributes()
+            self._attributes = enemy_radiant_attributes()
 
     def generate_stats(self):
 

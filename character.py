@@ -36,7 +36,7 @@ class Character:
        self._experience_to_go = 0
        self._experience_cap = 2000
        self._level = 1
-       attack_power = random.randint(0, self._fight_strength)
+       self._attack_power = random.randint(0, self._fight_strength)
             
 
     def equip(self, game_item, position):
@@ -130,13 +130,9 @@ class Character:
         print()
         print("Equipment:")
         equipment = list(self._equipment)
-        print(equipment[0])
-        print(equipment[1])
-        print(equipment[2])
-        print(equipment[3])
-        print(equipment[4])
-        print(equipment[5])
-        print()
+        for equipment in equipment:
+            print(equipment)
+            
     def display_inventory(self, inventory):
         print("Inventory:")
         item_total = 0
@@ -176,7 +172,7 @@ class Character:
                 
             elif choice == '2':
                 self._fight_health -= self._target._fight_strength
-                print("%s did " % (self._target._name) + str(self._target._fight_strength) + " damage to you")
+                print("%s did " % (self._target._name) + str(self._target._attack_power) + " damage to you")
                 
             elif choice == '3':
                 self._fight_health += self._fight_defense
