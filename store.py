@@ -4,6 +4,7 @@
 from armory import *
 from character import *
 from setup import *
+import re
 
 class Store:
     def __init__(self, classtype):
@@ -36,71 +37,116 @@ class Store:
         print()
     def buy_item(self,item):
         self._item = item
+        player_item = None
+        type_collecter = []
         for key_item, value in self._item.items():
             for key, value in value.items():
-                if key == 'Worth':
-                    if setup.starting_character._gold >= value:
-                        setup.starting_character.playerinfo()
-                        replace = str(input("Type which piece you wish to replace: "))
-                        setup.starting_character._inventory['Gold'] -= value
-                        if(replace == '1'):
-                            setup.starting_character.remove_item(setup.new_equipment_1, 0)
-                            setup.new_equipment_1 = self._item
-                            setup.starting_character.equip(setup.new_equipment_1, 0)
-                            self.bought_equipped()
-                        if(replace == '2'):
-                            setup.starting_character.remove_item(setup.new_equipment_2, 1)
-                            setup.new_equipment_2 = self._item
-                            setup.starting_character.equip(setup.new_equipment_2, 1)
-                            self.bought_equipped()
-                        if(replace == '3'):
-                            setup.starting_character.remove_item(setup.new_equipment_3, 2)
-                            setup.new_equipment_3 = self._item
-                            setup.starting_character.equip(setup.new_equipment_3, 2)
-                            self.bought_equipped()
-                        if(replace == '4'):
-                            setup.starting_character.remove_item(setup.new_equipment_4, 3)
-                            setup.new_equipment_4 = self._item
-                            setup.starting_character.equip(setup.new_equipment_4, 3)
-                            self.bought_equipped()
-                        if(replace == '5'):
-                            setup.starting_character.remove_item(setup.new_equipment_5, 4)
-                            setup.new_equipment_5 = self._item
-                            setup.starting_character.equip(setup.new_equipment_5, 4)
-                            self.bought_equipped()
-                        if(replace == '6'):
-                            setup.starting_character.remove_item(setup.new_equipment_6, 5)
-                            setup.new_equipment_6 = self._item
-                            setup.starting_character.equip(setup.new_equipment_6, 5)
-                            self.bought_equipped()
-                        
+                if key == "Worth":
+                        gold_value = value
+
+        if setup.starting_character._inventory['Gold'] >= gold_value:
+            for item in setup.starting_character._equipment:
+                for item_name, attributes in item.items():
+                    for attribute_name, attribute_value in attributes.items():
+                        if attribute_name == 'Type':
+                            type_collecter.append(attribute_value)
+                    
+            for item_name, value in self._item.items():
+                for key, value in value.items():
+                    if key == 'Type':
+                        bought_value = value
+                    if key == 'Worth':
+                        worth_value = value
+
+            def index_indicator():
+                index = 1
+                for type in type_collecter:
+                    if bought_value == type:
+                        return index
                     else:
-                        print("You dont have enought gold yet")
+                        index += 1
+            if index_indicator() == 1:
+                player_item = setup.new_equipment_1
+            elif index_indicator() == 2:
+                player_item = setup.new_equipment_2
+            elif index_indicator() == 3:
+                player_item = setup.new_equipment_3
+            elif index_indicator() == 4:
+                player_item = setup.new_equipment_4
+            elif index_indicator() == 5:
+                player_item = setup.new_equipment_5
+            elif index_indicator() == 6:
+                player_item = setup.new_equipment_6
+            elif index_indicator() == 7:
+                player_item = setup.new_equipment_7
+
+            for item_name, attributes in player_item.items():
+                for attribute_name, attribute_value in attributes.items():
+                    if attribute_name == 'Worth':
+                        player_item_worth = attribute_value
+            print(player_item_worth)
+            print(gold_value)
+            setup.starting_character.remove_item(player_item, index_indicator()-1)
+            setup.starting_character.equip(self._item, index_indicator()-1)
+            setup.starting_character._inventory['Gold'] -= gold_value
+            setup.starting_character._inventory['Gold'] += player_item_worth
+                            
+
                         
-           
+        else:
+            print("You dont have enought gold yet")
+    
     def display(self):
-        print()
-        print("<Welcome to the Store>")
-        print("Buy Sell and Window Shop")
-        item_1 = self.generate_item()
-        item_2 = self.generate_item()
-        item_3 = self.generate_item()
-        self.display_item(item_1)
-        self.display_item(item_2)
-        self.display_item(item_3)
-        print("To Buy an Item choose which item you wish to buy then type it in top to bottom")
-        choice = str(input("Choice: "))
-        if(choice == '1'):
-            self.buy_item(item_1)
-            return
-        if(choice == '2'):
-            self.buy_item(item_2)
-            return
-        if(choice == '3'):
-            self.buy_item(item_3)
-            return
-           
-           
-        
+        choice = None
+        while(choice != 'x'):
+            print()
+            print("<Welcome to the Store>")
+            print("Press 1 to Buy Armor, Weapons, and Amulets")
+            print("Press 2 to Sell Armor, Weapons, and Amulets")
+            print("Press 3 to Sell Inventory")
+            print("Press 'x' to exit the Store")
+            choice = str(input("Choice: "))
+            
+            if choice == "1":
+                
+                print("Buy Any Item You Wish")
+                item_1 = self.generate_item()
+                item_2 = self.generate_item()
+                item_3 = self.generate_item()
+                item_4 = self.generate_item()
+                item_5 = self.generate_item()
+                print()
+                self.display_item(item_1)
+                print()
+                self.display_item(item_2)
+                print()
+                self.display_item(item_3)
+                print()
+                self.display_item(item_4)
+                print()
+                self.display_item(item_5)
+                print()
+                print("To Buy an Item Enter the Number [Top to Bottom]")
+                option = str(input("Choice: "))
+                if(option == '1'):
+                    self.buy_item(item_1)
+                if(option == '2'):
+                    self.buy_item(item_2)
+                if(option == '3'):
+                    self.buy_item(item_3)
+                if(option == '4'):
+                    self.buy_item(item_4)
+                if(option == '5'):
+                    self.buy_item(item_5)
+               
+            if choice == "3":
+                print()
+                print("Welcome to the Zizzle's Inventory Bazzar")
+                print("Buy Any Item You Wish")
+                print("Under Constuction")
+
+              
+            else:
+               return
 
         

@@ -149,6 +149,7 @@ class Map:
             if choice == '6':
                 store = Store(setup.starting_character._type)
                 store.display()
+                setup.starting_character.playerinfo() #Just added this
               
 new_map_1 = Map(create_dungeon(), 2, 2)
 new_map_2 = Map(create_dungeon(), 2, 2)

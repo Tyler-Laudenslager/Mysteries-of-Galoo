@@ -10,6 +10,7 @@ def init():
     global new_equipment_4
     global new_equipment_5
     global new_equipment_6
+    global new_equipment_7
     armor_locator = None
     starting_character = None
     new_equipment_1 = None
@@ -18,4 +19,5 @@ def init():
     new_equipment_4 = None
     new_equipment_5 = None
     new_equipment_6 = None
+    new_equipment_7 = None
     

@@ -168,7 +168,7 @@ class Armory:
                 armor_picked = armory[random.randint(0,4)][setup.armor_locator]
                 setup.armor_locator += 1
             else:
-                armor_picked = armory[random.randint(0,4)][random.raint(0,4)]
+                armor_picked = armory[random.randint(0,4)][random.randint(0,4)]
         if classtype == 'Priest':
 
             if setup.armor_locator < 5:

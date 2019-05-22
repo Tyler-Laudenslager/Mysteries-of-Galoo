@@ -1,7 +1,8 @@
 # Mysteries-of-Galoo
-Object Oriented Event Driven Text-Based RPG written in Python 3
+Text-Based RPG written in Python (personal project)
 
-Armory.py module handles all the weapons, armor, amulets for the characters/enemies.
+
+Armory.py module handles all the weapons armor amulets for the characters/enemies.
 
 generator.py module handles all the stat generation to work with the weapon.py module
 
@@ -11,8 +12,4 @@ weapon.py module is the weapon class file handles making all the weapons in the 
 
 character.py module is the character class file to create every character in the game.
 
-game.py module needs revision 
-
-map_creator.py module handles the dungeons/worlds/solar-systems underlying structure.
-
-main.py is the MAIN python module RUN THIS FIRST!!!!
+game.py module imports all the module from above.

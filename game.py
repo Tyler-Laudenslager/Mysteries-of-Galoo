@@ -67,11 +67,13 @@ treasure_chest = {'Gold':40, 'Health Potion':1, 'Ruby_Necklace':1, 'Autographed 
 
 regular_loot = {'Gold':3, 'Dirty Clothes':1}
 
+starting_loot = {'Gold':0}
+
 dust_loot = {'Dust':2}
 
 diamond_chest = {'Diamond':1, 'Gold':100}
 
-loot = {'treasure':treasure_chest,'regular':regular_loot,'dust':dust_loot,'diamond_chest':diamond_chest}
+loot = {'treasure':treasure_chest,'regular':regular_loot,'dust':dust_loot,'diamond_chest':diamond_chest,'starting_loot':starting_loot}
 
 start_new = {'health':100, 'energy':50, 'strength':5, 'defense':5}
 
