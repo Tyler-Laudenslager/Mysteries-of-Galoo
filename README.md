@@ -13,3 +13,5 @@ weapon.py module is the weapon class file handles making all the weapons in the 
 character.py module is the character class file to create every character in the game.
 
 game.py module imports all the module from above.
+
+map_creator.py module is the map engine of the game allows characters to move into new encounters
