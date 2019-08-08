@@ -1,26 +1,19 @@
-#Kandu! Entertainment 6/30/2018
-#This is the main module to run world of Galoo
-#! python3
-from character import *
-import random
-from time import sleep
-from story import *
-import sys
-from weapon import *
-from armory import *
+# Kandu! Entertainment 6/30/2018
+# This is the main module to run world of Galoo
+# ! python3
 from enemy_hero_creator import *
-from map_creator import *
 from game import *
-from generator import *
-import setup
+from map_creator import *
+
+
 def setup_character():
-    setup.new_equipment_1 = Armory.get_weapon(setup.starting_character._type)
-    setup.new_equipment_2 = Armory.get_armor(setup.starting_character._type)
-    setup.new_equipment_3 = Armory.get_armor(setup.starting_character._type)
-    setup.new_equipment_4 = Armory.get_armor(setup.starting_character._type)
-    setup.new_equipment_5 = Armory.get_armor(setup.starting_character._type)
-    setup.new_equipment_6 = Armory.get_armor(setup.starting_character._type)
-    setup.new_equipment_7 = Armory.get_amulet(setup.starting_character._type)
+    setup.new_equipment_1 = get_weapon(setup.starting_character._type)
+    setup.new_equipment_2 = get_armor(setup.starting_character._type)
+    setup.new_equipment_3 = get_armor(setup.starting_character._type)
+    setup.new_equipment_4 = get_armor(setup.starting_character._type)
+    setup.new_equipment_5 = get_armor(setup.starting_character._type)
+    setup.new_equipment_6 = get_armor(setup.starting_character._type)
+    setup.new_equipment_7 = get_amulet(setup.starting_character._type)
     setup.starting_character.equip(setup.new_equipment_1, 0)
     setup.starting_character.equip(setup.new_equipment_2, 1)
     setup.starting_character.equip(setup.new_equipment_3, 2)
@@ -29,7 +22,9 @@ def setup_character():
     setup.starting_character.equip(setup.new_equipment_6, 5)
     setup.starting_character.equip(setup.new_equipment_7, 6)
     setup.starting_character.add_to_inventory(loot['starting_loot'])
-    setup.starting_character.add_to_inventory({'Gold':10000})
+    setup.starting_character.add_to_inventory({'Gold': 10000})
+
+
 def start_menu():
     clear_buffer()
     print("Mysteries of Galoo")
@@ -55,36 +50,36 @@ def start_menu():
         choice = str(input("Choice: "))
         if choice == '1':
             name = input("Enter name for your Gorilla: ")
-            setup.starting_character = Gorilla(radiant_char, name)
+            setup.starting_character = Gorilla(dusty_hero, name)
             setup.armor_locator = 0
 
-        if choice == '2':
+        elif choice == '2':
             name = input("Enter name for your Tunneler: ")
-            setup.starting_character = Tunneler(radiant_char, name)
+            setup.starting_character = Tunneler(dusty_hero, name)
             setup.armor_locator = 0
-        if choice == '3':
+        elif choice == '3':
             name = input("Enter name for your Archer: ")
-            setup.starting_character = Archer(radiant_char, name)
+            setup.starting_character = Archer(dusty_hero, name)
             setup.armor_locator = 0
-        if choice == '4':
+        elif choice == '4':
             name = input("Enter name for your Alchemist: ")
-            setup.starting_character = Alchemist(radiant_char, name)
+            setup.starting_character = Alchemist(dusty_hero, name)
             setup.armor_locator = 0
-        if choice == '5':
+        elif choice == '5':
             name = input("Enter name for your Knight: ")
-            setup.starting_character = Knight(radiant_char, name)
+            setup.starting_character = Knight(dusty_hero, name)
             setup.armor_locator = 0
-        if choice == '6':
+        elif choice == '6':
             name = input("Enter name for your Botanist: ")
-            setup.starting_character = Botanist(radiant_char, name)
+            setup.starting_character = Botanist(dusty_hero, name)
             setup.armor_locator = 0
-        if choice == '7':
+        elif choice == '7':
             name = input("Enter name for your Priest: ")
-            setup.starting_character = Priest(radiant_char, name)
+            setup.starting_character = Priest(dusty_hero, name)
             setup.armor_locator = 0
-        if choice == '8':
+        elif choice == '8':
             name = input("Enter name for your Magician: ")
-            setup.starting_character = Magician(radiant_char, name)
+            setup.starting_character = Magician(dusty_hero, name)
             setup.armor_locator = 0
         setup_character()
         enter_galoo()
@@ -95,5 +90,7 @@ def start_menu():
 
     else:
         print("Choose again")
-start_menu()
 
+
+if __name__ == '__main__':
+    start_menu()

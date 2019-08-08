@@ -1,12 +1,13 @@
-#Kandu! Entertainment est. 6/30/2018
-#This is the enemy character creator class
+# Kandu! Entertainment est. 6/30/2018
+# This is the enemy character creator class
 
 from weapon import *
 
+
 class Enemy:
-    
+
     def __init__(self, attributes):
-        
+
         if attributes == 'dusty':
             self._attributes = enemy_dusty_attributes()
         if attributes == 'clean':
@@ -17,10 +18,17 @@ class Enemy:
             self._attributes = enemy_forsaken_attributes()
         if attributes == 'radiant':
             self._attributes = enemy_radiant_attributes()
+        if attributes == 'thunderous':
+            self._attributes = enemy_thunderous_attributes()
+        if attributes == 'immortal':
+            self._attributes = enemy_immortal_attributes()
+        if attributes == 'legendary':
+            self._attributes = enemy_legendary_attributes()
 
     def generate_stats(self):
 
         return self._attributes
+
 
 class Hero(Enemy):
 

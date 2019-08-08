@@ -1,20 +1,13 @@
-#Kandu! Entertainment est. 6/30/2018
-#This is the main module for Mysteries of Galoo.
+# Kandu! Entertainment est. 6/30/2018
+# This is the main module for Mysteries of Galoo.
 
-from character import *
 import random
-from time import sleep
 from story import *
-import sys
-from weapon import *
-from armory import *
-from enemy_hero_creator import *
-from generator import *
-from map_creator import *
+from time import sleep
+import enemy_hero_creator as en
 
-    
+
 def intro():
-
     print("""
 Welcome to the Universe of Galoo
 
@@ -42,18 +35,17 @@ you will then take the enemy's loot and it will be added to your inventory.
 Plays like Dungeons and Dragons your 'Dice Roll' determines what will happen.
 
 This is your Map. Don't Lose It! Have Fun!""")
-    
+
+
 def enter_galoo():
     clear_buffer()
-    print ("Manifesting Character in Galoo", end = " ")
+    print("Manifesting Character in Galoo", end=" ")
     for i in range(6):
-        print (".", end = " ")            
+        print(".", end=" ")
         sleep(.25)
-    print ("Done!")
+    print("Done!")
     sleep(.25)
-    
-    
-            
+
 
 defense = random.randint(10, 15)
 strength = random.randint(20, 28)
@@ -61,72 +53,66 @@ strength = random.randint(20, 28)
 enemy_strength = random.randint(5, 10)
 enemy_defense = random.randint(1, 5)
 
+treasure_chest = {'Gold': 40, 'Health Potion': 1, 'Ruby_Necklace': 1, 'Autographed Picture of Pee-wee Herman': 1, \
+                  'Sapphire': 1}
 
-treasure_chest = {'Gold':40, 'Health Potion':1, 'Ruby_Necklace':1, 'Autographed Picture of Pee-wee Herman':1, \
-                    'Sapphire':1}
+regular_loot = {'Gold': 3, 'Dirty Clothes': 1}
 
-regular_loot = {'Gold':3, 'Dirty Clothes':1}
+starting_loot = {'Gold': 0}
 
-starting_loot = {'Gold':0}
+dust_loot = {'Dust': 2}
 
-dust_loot = {'Dust':2}
+diamond_chest = {'Diamond': 1, 'Gold': 100}
 
-diamond_chest = {'Diamond':1, 'Gold':100}
+loot = {'treasure': treasure_chest, 'regular': regular_loot, 'dust': dust_loot, 'diamond_chest': diamond_chest,
+        'starting_loot': starting_loot}
 
-loot = {'treasure':treasure_chest,'regular':regular_loot,'dust':dust_loot,'diamond_chest':diamond_chest,'starting_loot':starting_loot}
+start_new = {'health': 100, 'energy': 50, 'strength': 5, 'defense': 5}
 
-start_new = {'health':100, 'energy':50, 'strength':5, 'defense':5}
+dusty_enemy = en.Enemy('dusty')
 
-dusty_enemy = Enemy('dusty')
+clean_enemy = en.Enemy('clean')
 
-clean_enemy = Enemy('clean')
+shiny_enemy = en.Enemy('shiny')
 
-shiny_enemy = Enemy('shiny')
+forsaken_enemy = en.Enemy('forsaken')
 
-forsaken_enemy = Enemy('forsaken')
+radiant_enemy = en.Enemy('radiant')
 
-radiant_enemy = Enemy('radiant')
+thunderous_enemy = en.Enemy('thunderous')
 
-dusty_hero = Hero('dusty')
+immortal_enemy = en.Enemy('immortal')
 
-clean_enemy = clean_enemy.generate_stats()
+legendary_enemy = en.Enemy('legendary')
 
-radiant_char = Hero('radiant')
+dusty_hero = en.Hero('dusty')
+
+radiant_char = en.Hero('radiant')
 
 dusty_enemy = dusty_enemy.generate_stats()
 
+clean_enemy = clean_enemy.generate_stats()
+
+shiny_enemy = shiny_enemy.generate_stats()
+
+forsaken_enemy = forsaken_enemy.generate_stats()
+
+radiant_enemy = radiant_enemy.generate_stats()
+
+thunderous_enemy = thunderous_enemy.generate_stats()
+
+immortal_enemy = immortal_enemy.generate_stats()
+
+legendary_enemy = legendary_enemy.generate_stats()
+
+dusty_hero = dusty_hero.generate_stats()
+
 radiant_char = radiant_char.generate_stats()
 
-child = {'health':50000, 'energy':100, 'strength':enemy_strength, 'defense':enemy_defense}
+child = {'health': 50000, 'energy': 100, 'strength': enemy_strength, 'defense': enemy_defense}
 
-basic_staff = {'health':5, 'energy':10, 'strength':5, 'defense':1}
+basic_staff = {'health': 5, 'energy': 10, 'strength': 5, 'defense': 1}
 
-legendary_stats = {'health':5000, 'energy':2500, 'strength':7000, 'defense':3500, 'color':'orange'}
+legendary_stats = {'health': 5000, 'energy': 2500, 'strength': 7000, 'defense': 3500, 'color': 'orange'}
 
 
-
-##basic_sword = Weapon('Dusty Sword', 'dusty')
-##basic_staff = Weapon('Dusty Oak Staff', 'dusty')
-##armory = {'Trainer Staff':basic_staff, 'Trainer Sword':basic_sword}
-##
-##
-##magician = Magician(radiant_char, 'Merlin')
-##harambe = Gorilla(dusty_enemy, 'Harambe')
-##
-##harambe.add_to_inventory(loot['treasure'])
-##    
-##new_weapon = Armory.get_weapon(magician._type)
-##new_weapon3 = Armory.get_weapon(magician._type)
-##new_weapon2 = Armory.get_weapon(harambe._type)
-##
-##magician.equip(new_weapon)
-##magician.fight(harambe)
-##magician.playerinfo()
-##
-##magician.remove_item(new_weapon)
-##
-##magician.playerinfo()
-##
-##magician.playerinfo()
-##harambe.playerinfo()
-##input("Press Enter to Exit")
