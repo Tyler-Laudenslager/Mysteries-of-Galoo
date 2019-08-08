@@ -15,3 +15,5 @@ character.py module is the character class file to create every character in the
 game.py module imports all the module from above.
 
 map_creator.py module is the map engine of the game allows characters to move into new encounters
+
+store.py handles the store functionality of the game buying and selling items
