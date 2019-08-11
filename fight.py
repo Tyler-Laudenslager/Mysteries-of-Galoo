@@ -9,6 +9,8 @@ def fight(attacker, target):
 
     attacker_init_defense = attacker._fight_defense
     attacker_init_health = attacker._fight_health
+    attacker_init_strength = attacker._fight_strength
+    attacker_init_energy = attacker._fight_energy
 
 
     print()
@@ -27,7 +29,7 @@ def fight(attacker, target):
         print()
         sleep(1)
         if attacker_turn:
-            attacker_choice = input("Your Move: 1 for Attack 2 for Defend: ")
+            attacker_choice = input("Your Move: 1 for Attack 2 for Defend 3 to Use Potion: ")
             print()
             if attacker_choice == '1':
                 attack_power = attacker.attack(target)
@@ -38,6 +40,55 @@ def fight(attacker, target):
                 attacker_init_health += attacker_init_defense
                 print("You gained " + str(attacker_init_defense) + " armor")
                 attacker_turn = False
+
+            elif attacker_choice == '3':
+                print("Choose which potion to use")
+
+                attacker.display_inventory()
+
+                choice = input("Choose which potion to use ex \"Health Potion\": ")
+
+                if choice == 'Health Potion':
+                    if choice in attacker._inventory.keys():
+                        if attacker._inventory[choice] > 0:
+                            attacker_init_health += 20
+                            print("You gained 20 health")
+                            attacker.remove_inventory_item('Health Potion', 1)
+                            attacker_turn = False
+                    else:
+                        print('You do not have any Health Potions')
+
+
+                if choice == 'Defense Potion':
+                    if choice in attacker._inventory.keys():
+                        if attacker._inventory[choice] > 0:
+                            attacker_init_defense += 20
+                            print("You gained 20 armor")
+                            attacker.remove_inventory_item('Defense Potion', 1)
+                            attacker_turn = False
+                    else:
+                        print('You do not have any Defense Potions')
+
+                if choice == 'Energy Potion':
+                    if choice in attacker._inventory.keys():
+                        if attacker._inventory[choice] > 0:
+                            attacker_init_energy += 20
+                            print("You gained 20 Energy")
+                            attacker.remove_inventory_item('Energy Potion', 1)
+                            attacker_turn = False
+                    else:
+                        print('You do not have any Energy Potions')
+
+                if choice == 'Strength Potion':
+                    if choice in attacker._inventory.keys():
+                        if attacker._inventory[choice] > 0:
+                            attacker_init_strength += 30
+                            print("You gained 30 strength")
+                            attacker.remove_inventory_item('Strength Potion', 1)
+                            attacker_turn = False
+                    else:
+                        print('You do not have any Strength Potions')
+
         else:
             target_choice = str(random.randint(1, 2))
             if target_choice == '1':
@@ -72,3 +123,4 @@ def fight(attacker, target):
     target._fight_health = target_init_health
     attacker._fight_health = attacker_init_health
     attacker._fight_defense = attacker_init_defense
+

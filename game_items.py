@@ -10,11 +10,12 @@ dirty_clothes = Item('Dirty Clothes', 5)
 ruby_necklace = Item('Ruby Necklace', 50)
 picture = Item('Autographed Picture of Pee-wee Herman', 200)
 diamond = Item('Diamond', 300)
+dust = Item('Dust', 2)
 
 
 def get_inventory_item(item):
     item -= 1
     cabinet = [health_potion, defense_potion, energy_potion, strength_potion, sapphire, dirty_clothes,
-               ruby_necklace, picture, diamond]
+               ruby_necklace, picture, diamond, dust]
 
     return cabinet[item]
