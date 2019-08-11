@@ -88,6 +88,7 @@ class Character:
             del self._inventory[item]
         else:
             pass
+
     def attack(self, target):
         attack_power = random.randint(0, self._fight_strength)
         target._fight_health -= attack_power

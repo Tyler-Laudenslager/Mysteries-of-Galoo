@@ -44,6 +44,7 @@ class Store:
         print()
         print("Your item has been bought and added to your inventory")
         print()
+
     def sell_inventory_item(self, item, quantity):
         self._item = item
         self._item.zero()
@@ -53,6 +54,7 @@ class Store:
 
     def buy_inventory_item(self, item, quantity):
         self._item = item
+        self._item.zero()
         self._item.increment_quantity(quantity)
         price = self._item.get_price()
         if setup.starting_character._inventory['Gold'] >= price:
@@ -209,8 +211,8 @@ Happy Hunting! (press x to exit)""")
                         print("Please select and enter a number from the items above")
                         sleep(2)
             if choice == "2":
-                print("Press 1 to Buy Inventory")
-                print("Press 2 to Sell Inventory")
+                print("Press 1 to Buy Potions")
+                print("Press 2 to Sell Potions")
                 choice = input("Choice: ")
 
                 if choice == '1':
@@ -223,10 +225,10 @@ Happy Hunting! (press x to exit)""")
                         print()
                         print("Welcome to the Zizzle's Inventory Bazzar")
                         print("Buy Any Item You Wish")
-                        print("Health Potion")
-                        print("Defense Potion")
-                        print("Energy Potion")
-                        print("Strength Potion")
+                        print("1 Health Potion")
+                        print("2 Defense Potion")
+                        print("3 Energy Potion")
+                        print("4 Strength Potion")
                         try:
                             print("To Buy an Item Enter the Number [Top to Bottom]")
                             choice = str(input("Choice: "))
@@ -250,7 +252,7 @@ Happy Hunting! (press x to exit)""")
 
                                 self.bought_inventory()
                                 buy_again = input("Do you wish to buy another item?: ")
-                                if buy_again in ['n', 'N', 'No']:
+                                if buy_again in ['n', 'no', 'N', 'No']:
                                     choice = 'x'
                                 else:
                                     continue
@@ -291,6 +293,8 @@ Happy Hunting! (press x to exit)""")
                                 item = get_inventory_item(8)
                             elif item == 'Diamond':
                                 item = get_inventory_item(9)
+                            elif item == 'Dust':
+                                item = get_inventory_item(10)
                             self.sell_inventory_item(item, quantity)
                             print("Transaction Completed")
                             print()
