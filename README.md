@@ -1,19 +1,4 @@
 # Mysteries-of-Galoo
 Text-Based RPG written in Python 3
 
-
-Armory.py module handles all the weapons armor amulets for the characters/enemies.
-
-generator.py module handles all the stat generation to work with the weapon.py module
-
-story.py module is the story module handles all the text that gets displayed during the game.
-
-weapon.py module is the weapon class file handles making all the weapons in the game.
-
-character.py module is the character class file to create every character in the game.
-
-game.py module imports all the module from above.
-
-map_creator.py module is the map engine of the game allows characters to move into new encounters
-
-store.py handles the store functionality of the game buying and selling items
+See Wiki for more information
