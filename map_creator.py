@@ -58,7 +58,11 @@ class Map:
 
         self._start_y -= 1
         if self._grid[self._start_y][self._start_x] == room:
-            self.dungeon_selector()
+            if self.dungeon_selector():
+                pass
+            else:
+                self._start_y += 1
+                return
         if self._grid[self._start_y][self._start_x] == zero:
             self.choose_different_room()
             self._start_y += 1
@@ -72,7 +76,11 @@ class Map:
 
         self._start_y += 1
         if self._grid[self._start_y][self._start_x] == room:
-            self.dungeon_selector()
+            if self.dungeon_selector():
+                pass
+            else:
+                self._start_y -= 1
+                return
         if self._grid[self._start_y][self._start_x] == zero:
             self.choose_different_room()
             self._start_y -= 1
@@ -86,7 +94,11 @@ class Map:
 
         self._start_x += 1
         if self._grid[self._start_y][self._start_x] == room:
-            self.dungeon_selector()
+            if self.dungeon_selector():
+                pass
+            else:
+                self._start_x -= 1
+                return
         if self._grid[self._start_y][self._start_x] == zero:
             self.choose_different_room()
             self._start_x -= 1
@@ -100,7 +112,11 @@ class Map:
 
         self._start_x -= 1
         if self._grid[self._start_y][self._start_x] == room:
-            self.dungeon_selector()
+            if self.dungeon_selector():
+                pass
+            else:
+                self._start_x += 1
+                return
         if self._grid[self._start_y][self._start_x] == zero:
             self.choose_different_room()
             self._start_x += 1
@@ -113,21 +129,29 @@ class Map:
     def dungeon_selector(self):
 
         if self._world_number == 1:
-            f.fight(setup.starting_character, encounters.lvl_1_random_enemy())
+            defeated_enemy = f.fight(setup.starting_character, encounters.lvl_1_random_enemy())
+            return defeated_enemy
         if self._world_number == 2:
-            f.fight(setup.starting_character, encounters.lvl_2_random_enemy())
+            defeated_enemy = f.fight(setup.starting_character, encounters.lvl_2_random_enemy())
+            return defeated_enemy
         if self._world_number == 3:
-            f.fight(setup.starting_character, encounters.lvl_3_random_enemy())
+            defeated_enemy = f.fight(setup.starting_character, encounters.lvl_3_random_enemy())
+            return defeated_enemy
         if self._world_number == 4:
-            f.fight(setup.starting_character, encounters.lvl_4_random_enemy())
+            defeated_enemy = f.fight(setup.starting_character, encounters.lvl_4_random_enemy())
+            return defeated_enemy
         if self._world_number == 5:
-            f.fight(setup.starting_character, encounters.lvl_5_random_enemy())
+            defeated_enemy = f.fight(setup.starting_character, encounters.lvl_5_random_enemy())
+            return defeated_enemy
         if self._world_number == 6:
-            f.fight(setup.starting_character, encounters.lvl_6_random_enemy())
+            defeated_enemy = f.fight(setup.starting_character, encounters.lvl_6_random_enemy())
+            return defeated_enemy
         if self._world_number == 7:
-            f.fight(setup.starting_character, encounters.lvl_7_random_enemy())
+            defeated_enemy = f.fight(setup.starting_character, encounters.lvl_7_random_enemy())
+            return defeated_enemy
         if self._world_number == 8:
-            f.fight(setup.starting_character, encounters.lvl_8_random_enemy())
+            defeated_enemy = f.fight(setup.starting_character, encounters.lvl_8_random_enemy())
+            return defeated_enemy
 
     def display_map(self):
         print()
@@ -160,7 +184,7 @@ class Map:
             if choice == '6':
                 store = Store(setup.starting_character._type)
                 store.display()
-                setup.starting_character.playerinfo()  # Just added this
+                setup.starting_character.playerinfo()
 
 # world 1
 
@@ -438,7 +462,6 @@ world_8 = [[new_map_176, new_map_177, new_map_178, new_map_179, new_map_180],
 
 def play_world(world):
     for i in range(len(world)):
-
         for j in range(len(world[i])):
             world[i][j].map_engine()
 
