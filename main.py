@@ -4,7 +4,8 @@
 from enemy_hero_creator import *
 from game import *
 from map_creator import *
-
+import save
+from os import path
 
 def setup_character():
     setup.new_equipment_1 = get_weapon(setup.starting_character._type)
@@ -30,7 +31,8 @@ def start_menu():
     print("Mysteries of Galoo")
     blank_lines(1)
     print("\tPress 1 for New Game")
-    print("\tPress 2 to Exit")
+    if path.exists('save_file.pkl'):
+        print("\tPress 2 to Continue")
     blank_lines(1)
     choice = str(input("Choice: "))
     clear_buffer()
@@ -85,8 +87,10 @@ def start_menu():
         enter_galoo()
         intro()
         play_solar_system()
-    elif choice == '2':
-        sys.exit()
+    elif choice == '2' and path.exists('save_file.pkl'):
+        setup.starting_character = save.reload_object('save_file.pkl')
+        setup.starting_character.playerinfo()
+        play_solar_system()
 
     else:
         print("Choose again")
