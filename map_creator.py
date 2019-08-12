@@ -9,6 +9,8 @@ import encounters
 from map_creator import *
 from store import *
 import random
+import save
+import sys
 
 empty = 'Empty    '
 room = 'Dungeon  '
@@ -166,7 +168,7 @@ class Map:
         print()
         while True:
             self.display_map()
-            choice = str(input("UP:1 Down:2 Left:3 Right:4 New Map:5 Store:6: "))
+            choice = str(input("UP:1 Down:2 Left:3 Right:4 New Map:5 Store:6 Save:7 Quit:8 : "))
             if choice == '1':
                 self.up()
                 continue
@@ -185,7 +187,12 @@ class Map:
                 store = Store(setup.starting_character._type)
                 store.display()
                 setup.starting_character.playerinfo()
-
+            elif choice == '7':
+                save.save_object(setup.starting_character, 'save_file.pkl')
+                print("Game Save Successful!")
+            elif choice == '8':
+                print("Leaving the world of galoo....")
+                sys.exit()
 # world 1
 
 new_map_1 = Map(create_dungeon(), 2, 2, 1, 1)
