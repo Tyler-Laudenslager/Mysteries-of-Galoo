@@ -242,7 +242,7 @@ def enemy_immortal_attributes():
 def enemy_legendary_attributes():
     health = random.randint(23432, 26533)
     energy = random.randint(300, 4000)
-    strength = random.randint(1200, 2500)
+    strength = random.randint(30000, 35000)
     defense = random.randint(60000, 65000)
     gold = random.randint(10, 120)
     attributes = {'Health': health, 'Energy': energy, 'Strength': strength, 'Defense': defense, 'Worth': gold}

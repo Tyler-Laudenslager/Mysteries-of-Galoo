@@ -29,6 +29,7 @@ def fight(attacker, target):
         print()
         sleep(1)
         if attacker_turn:
+            print("Health: " + str(attacker._fight_health) + "    " + "Enemy Health: " + str(target._fight_health))
             attacker_choice = input("Your Move: 1 for Attack 2 for Defend 3 to Use Potion: ")
             print()
             if attacker_choice == '1':
@@ -37,7 +38,7 @@ def fight(attacker, target):
                 attacker_turn = False
 
             elif attacker_choice == '2':
-                attacker_init_health += attacker_init_defense
+                attacker._fight_health += attacker._fight_defense
                 print("You gained " + str(attacker_init_defense) + " armor")
                 attacker_turn = False
 
@@ -51,18 +52,17 @@ def fight(attacker, target):
                 if choice == 'Health Potion':
                     if choice in attacker._inventory.keys():
                         if attacker._inventory[choice] > 0:
-                            attacker_init_health += 20
+                            attacker._fight_health += 20
                             print("You gained 20 health")
                             attacker.remove_inventory_item('Health Potion', 1)
                             attacker_turn = False
                     else:
                         print('You do not have any Health Potions')
 
-
                 if choice == 'Defense Potion':
                     if choice in attacker._inventory.keys():
                         if attacker._inventory[choice] > 0:
-                            attacker_init_defense += 20
+                            attacker._fight_defense += 20
                             print("You gained 20 armor")
                             attacker.remove_inventory_item('Defense Potion', 1)
                             attacker_turn = False
@@ -72,7 +72,7 @@ def fight(attacker, target):
                 if choice == 'Energy Potion':
                     if choice in attacker._inventory.keys():
                         if attacker._inventory[choice] > 0:
-                            attacker_init_energy += 20
+                            attacker._fight_energy += 20
                             print("You gained 20 Energy")
                             attacker.remove_inventory_item('Energy Potion', 1)
                             attacker_turn = False
@@ -82,7 +82,7 @@ def fight(attacker, target):
                 if choice == 'Strength Potion':
                     if choice in attacker._inventory.keys():
                         if attacker._inventory[choice] > 0:
-                            attacker_init_strength += 30
+                            attacker._fight_strength += 30
                             print("You gained 30 strength")
                             attacker.remove_inventory_item('Strength Potion', 1)
                             attacker_turn = False
@@ -97,7 +97,7 @@ def fight(attacker, target):
                 attacker_turn = True
 
             elif target_choice == '2':
-                target_init_defense += target._fight_defense
+                target._fight_health += target._fight_defense
                 print("%s gained " % target._name + str(target._fight_defense) + " armor")
                 attacker_turn = True
 
@@ -113,14 +113,20 @@ def fight(attacker, target):
             attacker.increase_experience_ceiling()
         attacker.update_experience_to_go()
         sleep(0.3)
+        target._fight_defense = target_init_defense
+        target._fight_health = target_init_health
+        attacker._fight_health = attacker_init_health
+        attacker._fight_defense = attacker_init_defense
         attacker.playerinfo()
+        return True
     elif attacker._fight_health <= 0:
 
         print()
         print("You have been defeated by %s" % target._name)
+        target._fight_defense = target_init_defense
+        target._fight_health = target_init_health
+        attacker._fight_health = attacker_init_health
+        attacker._fight_defense = attacker_init_defense
+        return False
 
-    target._fight_defense = target_init_defense
-    target._fight_health = target_init_health
-    attacker._fight_health = attacker_init_health
-    attacker._fight_defense = attacker_init_defense
 
