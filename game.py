@@ -53,7 +53,7 @@ strength = random.randint(20, 28)
 enemy_strength = random.randint(5, 10)
 enemy_defense = random.randint(1, 5)
 
-treasure_chest = {'Gold': 40, 'Health Potion': 1, 'Ruby_Necklace': 1, 'Autographed Picture of Pee-wee Herman': 1, \
+treasure_chest = {'Gold': 40, 'Health Potion': 1, 'Ruby Necklace': 1, 'Autographed Picture of Pee-wee Herman': 1, \
                   'Sapphire': 1}
 
 regular_loot = {'Gold': 3, 'Dirty Clothes': 1}

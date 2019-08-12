@@ -211,8 +211,8 @@ Happy Hunting! (press x to exit)""")
                         print("Please select and enter a number from the items above")
                         sleep(2)
             if choice == "2":
-                print("Press 1 to Buy Potions")
-                print("Press 2 to Sell Potions")
+                print("Press 1 to Buy Inventory")
+                print("Press 2 to Sell Inventory")
                 choice = input("Choice: ")
 
                 if choice == '1':

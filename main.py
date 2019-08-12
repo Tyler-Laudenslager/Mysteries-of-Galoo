@@ -40,7 +40,8 @@ def start_menu():
         print("New Game!")
         blank_lines(1)
         print("Choose your character:")
-        print("Choose: 1) for Gorilla")
+        print("Choose: ")
+        print("\t1) for Gorilla")
         print("\t2) for Tunneler")
         print("\t3) for Archer")
         print("\t4) for Alchemist")
@@ -89,7 +90,10 @@ def start_menu():
         play_solar_system()
     elif choice == '2' and path.exists('save_file.pkl'):
         setup.starting_character = save.reload_object('save_file.pkl')
+        print("Welcome Back to Galoo!")
+        sleep(2)
         setup.starting_character.playerinfo()
+        sleep(2)
         play_solar_system()
 
     else:
