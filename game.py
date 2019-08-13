@@ -22,12 +22,16 @@ Down: Press 2
 Left: Press 3
 Right: Press 4
 Move to Another Map: Press 5
+Enter the Store: Press 6
+Save Current Progress: Press 7
+Quit the Game: Press 8
+
 
 8 dungeons per map / 25 maps per world / 8 worlds in the Solar System
 
-Quick Maths thats 1600 dungeons. Oh man....I guess I know what I'll be doing this weekend!
+1600 dungeons Oh man....
 
-Each 'Dungeon' you will start a fight with a random enemy *4 unique enemies so far*
+Each 'Dungeon' you will start a fight with a random encounter
 
 After you defeat the enemy with your strong weapon the developer has graciously provided,
 you will then take the enemy's loot and it will be added to your inventory.

@@ -12,7 +12,9 @@ def init():
     global new_equipment_5
     global new_equipment_6
     global new_equipment_7
+    global solar_system
 
+    solar_system = None
     starting_character = None
     armor_locator = None
     new_equipment_1 = None
