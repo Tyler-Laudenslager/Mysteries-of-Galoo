@@ -219,14 +219,15 @@ class SolarSystem:
                                 self._col += 1
                             else:
                                 continue
+                        self._col = 0
                         self._row += 1
                     else:
                         continue
+                self._row = 0
                 self._world += 1
             else:
                 continue
-        print("You have found all the mysteries of Galoo, Congratulations you have finished the game!")
-
+        print("Congratulations you have completed the Mysteries of Galoo...")
 
 # world 1
 
