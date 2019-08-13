@@ -17,9 +17,6 @@ room = 'Dungeon  '
 zero = '0        '
 player = 'Player   '
 
-global world_number
-
-world_number = 1
 
 def create_dungeon():
     empty = 'Empty    '
@@ -189,10 +186,48 @@ class Map:
                 setup.starting_character.playerinfo()
             elif choice == '7':
                 save.save_object(setup.starting_character, 'save_file.pkl')
+                save.save_object(setup.solar_system, 'solar_system.pkl')
                 print("Game Save Successful!")
             elif choice == '8':
                 print("Leaving the world of galoo....")
                 sys.exit()
+
+
+class SolarSystem:
+
+    def __init__(self, solar_system):
+        self._solar_system = solar_system
+        self._world = 0
+        self._row = 0
+        self._col = 0
+
+    def play_solar_system(self):
+
+        for world in enumerate(self._solar_system):
+            index = world[0]
+            world_obj = world[1]
+            if index == self._world:
+                for row in enumerate(world_obj):
+                    index_row = row[0]
+                    world_row = row[1]
+                    if index_row == self._row:
+                        for col in enumerate(world_row):
+                            index_col = col[0]
+                            world_col = col[1]
+                            if index_col == self._col:
+                                world_col.map_engine()
+                                self._col += 1
+                            else:
+                                continue
+                        self._row += 1
+                    else:
+                        continue
+                self._world += 1
+            else:
+                continue
+        print("You have found all the mysteries of Galoo, Congratulations you have finished the game!")
+
+
 # world 1
 
 new_map_1 = Map(create_dungeon(), 2, 2, 1, 1)
@@ -466,21 +501,8 @@ world_8 = [[new_map_176, new_map_177, new_map_178, new_map_179, new_map_180],
            [new_map_191, new_map_192, new_map_193, new_map_194, new_map_195],
            [new_map_196, new_map_197, new_map_198, new_map_199, new_map_200]]
 
-
-def play_world(world):
-    for i in range(len(world)):
-        for j in range(len(world[i])):
-            world[i][j].map_engine()
+solar_system = [world_1, world_2, world_3, world_4, world_5, world_6, world_7, world_8]
 
 
-def play_solar_system():
-    play_world(world_1)
-    play_world(world_2)
-    play_world(world_3)
-    play_world(world_4)
-    play_world(world_5)
-    play_world(world_6)
-    play_world(world_7)
-    play_world(world_8)
 
     print("You have found all the mysteries of Galoo, Congratulations you have finished the game!")
