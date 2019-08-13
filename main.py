@@ -87,14 +87,16 @@ def start_menu():
         setup_character()
         enter_galoo()
         intro()
-        play_solar_system()
-    elif choice == '2' and path.exists('save_file.pkl'):
+        setup.solar_system = SolarSystem(solar_system)
+        setup.solar_system.play_solar_system()
+    elif choice == '2' and path.exists('save_file.pkl') and path.exists('solar_system.pkl'):
         setup.starting_character = save.reload_object('save_file.pkl')
         print("Welcome Back to Galoo!")
         sleep(2)
         setup.starting_character.playerinfo()
         sleep(2)
-        play_solar_system()
+        setup.solar_system = save.reload_object('solar_system.pkl')
+        setup.solar_system.play_solar_system()
 
     else:
         print("Choose again")
