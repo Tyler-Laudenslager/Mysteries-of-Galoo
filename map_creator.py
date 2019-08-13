@@ -504,5 +504,3 @@ world_8 = [[new_map_176, new_map_177, new_map_178, new_map_179, new_map_180],
 solar_system = [world_1, world_2, world_3, world_4, world_5, world_6, world_7, world_8]
 
 
-
-    print("You have found all the mysteries of Galoo, Congratulations you have finished the game!")
