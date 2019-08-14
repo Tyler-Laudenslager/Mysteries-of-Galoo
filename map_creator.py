@@ -154,8 +154,8 @@ class Map:
 
     def display_map(self):
         print()
-        print("Map Level: ", self._map_number)
         print("World Level: ", self._world_number)
+        print("Map Level: ", self._map_number)
         for i in range(len(self._grid)):
             for j in range(len(self._grid[i])):
                 print(self._grid[i][j], end='|')
@@ -179,7 +179,17 @@ class Map:
                 self.right()
                 continue
             if choice == '5':
-                return
+                dungeon = 0
+                for row in self._grid:
+                    for col in row:
+                        if col == room:
+                            dungeon += 1
+                        else:
+                            continue
+                if dungeon > 0:
+                    print("You need to complete all the dungeons in order to move to a new map")
+                else:
+                    return
             if choice == '6':
                 store = Store(setup.starting_character._type)
                 store.display()
