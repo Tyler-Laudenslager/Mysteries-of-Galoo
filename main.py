@@ -26,6 +26,16 @@ def setup_character():
     setup.starting_character.add_to_inventory({'Gold': 10000})
 
 
+def setup_returning_character(character):
+    setup.new_equipment_1 = character._equipment[0]
+    setup.new_equipment_2 = character._equipment[1]
+    setup.new_equipment_3 = character._equipment[2]
+    setup.new_equipment_4 = character._equipment[3]
+    setup.new_equipment_5 = character._equipment[4]
+    setup.new_equipment_6 = character._equipment[5]
+    setup.new_equipment_7 = character._equipment[6]
+
+
 def start_menu():
     clear_buffer()
     print("Mysteries of Galoo")
@@ -92,9 +102,10 @@ def start_menu():
     elif choice == '2' and path.exists('save_file.pkl') and path.exists('solar_system.pkl'):
         setup.starting_character = save.reload_object('save_file.pkl')
         print("Welcome Back to Galoo!")
-        sleep(2)
+        sleep(1)
         setup.starting_character.playerinfo()
-        sleep(2)
+        setup.armor_locator = 5
+        setup_returning_character(setup.starting_character)
         setup.solar_system = save.reload_object('solar_system.pkl')
         setup.solar_system.play_solar_system()
 

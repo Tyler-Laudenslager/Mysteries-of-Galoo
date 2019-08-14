@@ -152,27 +152,21 @@ Once you buy a item from the store that same type of armor, weapon or amulet in 
 will then be sold to the store and replaced with the armor, weapon, or amulet you purchase
                     
 Happy Hunting! (press x to exit)""")
-                    sleep(8)
                     print()
                     self.display_item(item_1)
-                    sleep(2)
                     print()
                     self.display_item(item_2)
-                    sleep(2)
                     print()
                     self.display_item(item_3)
-                    sleep(2)
                     print()
                     self.display_item(item_4)
-                    sleep(2)
                     print()
                     self.display_item(item_5)
-                    sleep(2)
                     print()
                     try:
                         print("To Buy an Item Enter the Number [Top to Bottom]")
                         choice = str(input("Choice: "))
-                        choices = ['1', '2', '3', '4', '5']
+                        choices = ['1', '2', '3', '4', '5', 'x']
                         if choice in choices:
                             if choice == '1':
 
@@ -193,17 +187,17 @@ Happy Hunting! (press x to exit)""")
                             elif choice == '5':
 
                                 self.buy_armor_item(item_5)
+                            elif choice == 'x':
+                                continue
                             self.bought_equipped()
                             buy_again = input("Do you wish to buy another item?: ")
-                            if buy_again in ['n', 'N', 'No']:
+                            if buy_again in ['n', 'no', 'N', 'No']:
                                 choice = 'x'
                             else:
                                 continue
-                            sleep(2)
                         else:
                             print()
                             print("Please select a piece of equipment from above or press x to exit the store")
-                            sleep(2)
                     except TypeError:
                         print("Please select and enter a number from the items above")
                         sleep(2)
