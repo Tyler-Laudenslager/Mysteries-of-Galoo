@@ -6,6 +6,7 @@ from game import *
 from map_creator import *
 import save
 from os import path
+import time
 
 def setup_character():
     setup.new_equipment_1 = get_weapon(setup.starting_character._type)
@@ -111,7 +112,8 @@ def start_menu():
 
     else:
         print("Choose again")
-
+        time.sleep(0.6)
+        start_menu()
 
 if __name__ == '__main__':
     start_menu()
