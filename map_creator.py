@@ -23,6 +23,14 @@ def create_dungeon():
     room = 'Dungeon  '
     zero = '0        '
     player = 'Player   '
+    
+    #A list with the above with probabilities!  NOTE: you could potentially have more than
+    #one player but the odds are 1/(1+9+15) 
+    weighted_random = [player] * 1 + [room] * 9 + [zero] * 15
+    
+    #this creates random 5x5 lists of dungeons with the weighted_random
+    rand_dungeons = [[random.choice(weighted_random) for i in range(5)] for j in range(5)]
+    
     dungeon_1 = [[zero, zero, room, zero, zero],
                  [zero, zero, room, zero, zero],
                  [room, room, player, room, room],
@@ -35,8 +43,11 @@ def create_dungeon():
                  [zero, room, room, room, room],
                  [zero, zero, room, zero, room]]
 
+    
+    
     dungeons = [dungeon_1, dungeon_2]
     return random.choice(dungeons)
+    #return rand_dungeons #instead of hard coding; you can completely randomize your dungeons but its up to you
 
 
 class Map:
