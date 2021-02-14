@@ -152,19 +152,19 @@ Once you buy a item from the store that same type of armor, weapon or amulet in 
 will then be sold to the store and replaced with the armor, weapon, or amulet you purchase
                     
 Happy Hunting! (press x to exit)""")
-                    print("1:")
+                    print()
                     self.display_item(item_1)
-                    print("2:")
+                    print()
                     self.display_item(item_2)
-                    print("3:")
+                    print()
                     self.display_item(item_3)
-                    print("4")
+                    print()
                     self.display_item(item_4)
-                    print("5")
+                    print()
                     self.display_item(item_5)
                     print()
                     try:
-                        print("To Buy an Item Enter the Number")
+                        print("To Buy an Item Enter the Number [Top to Bottom]")
                         choice = str(input("Choice: "))
                         choices = ['1', '2', '3', '4', '5', 'x']
                         if choice in choices:

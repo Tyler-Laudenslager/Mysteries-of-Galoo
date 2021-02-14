@@ -115,5 +115,6 @@ def start_menu():
         time.sleep(0.6)
         start_menu()
 
+
 if __name__ == '__main__':
     start_menu()

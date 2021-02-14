@@ -107,6 +107,8 @@ def fight(attacker, target):
         print("You Defeated %s" % target._name)
         sleep(2)
         print("You recieved %s's inventory" % target._name)
+        for key, value in target._inventory.items():
+            print(value, key)
         sleep(2)
         attacker.add_experience_points()
         if attacker.check_level() == True:
